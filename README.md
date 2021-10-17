@@ -1,1 +1,1 @@
-# campaign-organizer
+# the lore keeper
