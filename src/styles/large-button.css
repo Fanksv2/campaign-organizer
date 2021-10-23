@@ -1,0 +1,26 @@
+.largebutton {
+    height: 20%;
+    border-radius: 5px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    background-color: rgb(114, 5, 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.largebutton:hover {
+    transition: 300ms;
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.largebutton svg {
+    height: 40px;
+    padding-top: 3px;
+}
+
+.largebutton:hover svg path {
+    fill: var(--color-white);
+    transition: 300ms;
+}

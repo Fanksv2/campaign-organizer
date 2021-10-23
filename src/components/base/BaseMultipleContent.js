@@ -1,12 +1,13 @@
 import React from "react";
+import "../../styles/basemultiplecontent.css";
 
 const BaseMultipleContent = (props) => {
     const title = props.title;
-    const InnerComponent = props.innerComponent;
+    const InnerComponent = props.children;
     return (
         <div className="basemultiplecontent">
             <h1>{title}</h1>
-            {InnerComponent}
+            <div className="child">{InnerComponent}</div>
         </div>
     );
 };

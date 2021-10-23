@@ -1,7 +1,12 @@
 import React from "react";
+import BaseMultipleContent from "../base/BaseMultipleContent";
 
 const Worlds = () => {
-    return <div>Worlds</div>;
+    return (
+        <div className="worlds">
+            <BaseMultipleContent></BaseMultipleContent>
+        </div>
+    );
 };
 
 export default Worlds;

@@ -1,0 +1,9 @@
+.baselistlarge {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 50%;
+    height: 70%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 30px 25px 30px;
+}

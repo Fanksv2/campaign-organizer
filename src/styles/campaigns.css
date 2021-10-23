@@ -1,0 +1,18 @@
+.campaigns {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.campaigns-content {
+    width: 100%;
+    height: 100%;
+}
+
+.newbutton {
+    background-color: rgb(33, 102, 63) !important;
+}
+
+.newbutton:hover {
+    background-color: seagreen !important;
+}

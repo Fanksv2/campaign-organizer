@@ -11,12 +11,15 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const SideBar = (props) => {
-    const [currentPage, setCurrentPage] = useState("dashboard");
+    const currentPageHtml = () => {
+        console.log(window.location.pathname.split("/")[1]);
+        return window.location.pathname.split("/")[1];
+    };
+    const [currentPage, setCurrentPage] = useState(currentPageHtml());
     const active = "active";
 
     const handleClick = (e) => {
         setCurrentPage(e.target.id);
-        console.log(e.target.id);
     };
 
     return (

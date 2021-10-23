@@ -1,0 +1,18 @@
+.basemultiplecontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 30px 30px 25px 65px;
+}
+
+.basemultiplecontent .child {
+    border-top: 1px solid black;
+    display: flex;
+    padding-top: 30px;
+    flex-grow: 1;
+}
+
+.basemultiplecontent h1 {
+    font-size: 50px;
+}
