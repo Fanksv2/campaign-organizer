@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#root {
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.header {
+    background-color: blueviolet;
+}
+
+.app-middle {
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.app-content {
+    width: 100%;
+    background-color: chartreuse;
+}
+
+.footer {
+    background-color: burlywood;
+}
