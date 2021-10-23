@@ -1,11 +1,26 @@
+@font-face {
+    font-family: "Draconic";
+    src: local("Draconic"),
+        url(./assets/font/Draconis-JRw6B.ttf) format("truetype");
+}
+
 * {
     margin: 0px;
     padding: 0px;
     border: 0px;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+    font-family: Draconic, serif;
+    font-weight: 100;
 }
 
-#root {
-    height: 100%;
+:root {
+    --color-red: #8c281f;
+    --color-yellow: #f2a97e;
+    --color-black: #0d0d0d;
+    --color-lightblue: #639fa6;
+    --color-darkblue: #284659;
+    --color-white: #ffffff;
 }
 
 .app {
@@ -17,21 +32,16 @@
     position: absolute;
 }
 
-.header {
-    background-color: blueviolet;
-}
-
 .app-middle {
-    background-color: red;
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 100%;
+    background-color: var(--color-yellow);
 }
 
 .app-content {
     width: 100%;
-    background-color: chartreuse;
 }
 
 .footer {
