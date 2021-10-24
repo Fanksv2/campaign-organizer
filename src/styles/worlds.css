@@ -1,0 +1,14 @@
+.worlds {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.worlds-content {
+    width: 100%;
+    height: 100%;
+}
+
+.worlds-content p {
+    font-size: 30px;
+}

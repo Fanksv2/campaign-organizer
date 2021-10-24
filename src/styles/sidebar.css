@@ -16,10 +16,16 @@
     pointer-events: none;
 }
 
-.sidebar svg path {
+.sidebar a svg path {
     fill: var(--color-white);
 }
 
+.sidebar a:hover svg:not(.active) path {
+    fill: var(--color-light-grey);
+
+    transition: 300ms;
+}
+
 .sidebar .active path {
-    fill: var(--color-black);
+    fill: var(--color-darkblue);
 }

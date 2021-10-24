@@ -29,6 +29,9 @@ h1 {
     --color-lightblue: #639fa6;
     --color-darkblue: #284659;
     --color-white: #ffffff;
+    --color-grey: rgb(59, 59, 59);
+    --color-light-grey: rgb(187, 187, 187);
+    --color-light-yellow: #ffb489;
 }
 
 .app {
@@ -45,7 +48,10 @@ h1 {
     flex-direction: row;
     height: 100%;
     width: 100%;
-    background-color: var(--color-yellow);
+    background-color: var(--color-light-yellow);
+}
+
+.app-middle::before {
 }
 
 .app-content {
