@@ -51,3 +51,11 @@ a {
     fill: var(--color-white);
     transition: 300ms;
 }
+
+.newbutton {
+    background-color: rgb(33, 102, 63) !important;
+}
+
+.newbutton:hover {
+    background-color: seagreen !important;
+}

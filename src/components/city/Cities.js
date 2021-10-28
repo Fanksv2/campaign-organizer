@@ -1,7 +1,11 @@
 import React from "react";
 
 const Cities = () => {
-    return <div>Cities</div>;
+    return (<div className="cities">
+    
+    
+    </div>
+    );
 };
 
 export default Cities;

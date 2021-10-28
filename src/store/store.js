@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import campaignSlice from "./campaign/campaignSlice";
+import npcSlice from "./npcs/npcSlice";
 import userSlice from "./user/userSlice";
 import worldSlice from "./world/worldSlice";
 
@@ -8,5 +9,6 @@ export default configureStore({
         user: userSlice,
         campaigns: campaignSlice,
         worlds: worldSlice,
+        npcs: npcSlice,
     },
 });
