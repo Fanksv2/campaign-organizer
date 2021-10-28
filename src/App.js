@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import Locations from "./components/locations/Locations";
 import Npcs from "./components/npc/Npcs";
 import SideBar from "./components/SideBar";
+import World from "./components/world/World";
 import Worlds from "./components/world/Worlds";
 
 function App() {
@@ -21,12 +22,13 @@ function App() {
                     <SideBar />
                     <div className="app-content">
                         <Route component={Home} exact path="/" />
-                        <Route component={Dashboard} exact path="/dashboard" />
-                        <Route component={Campaigns} exact path="/campaigns" />
-                        <Route component={Worlds} exact path="/worlds" />
-                        <Route component={Cities} exact path="/cities" />
-                        <Route component={Locations} exact path="/locations" />
-                        <Route component={Npcs} exact path="/npcs" />
+                        <Route component={Dashboard} path="/dashboard" />
+                        <Route component={Campaigns} path="/campaigns" />
+                        <Route component={Worlds} path="/worlds" />
+                        <Route component={Cities} path="/cities" />
+                        <Route component={Locations} path="/locations" />
+                        <Route component={Npcs} path="/npcs" />
+                        <Route component={World} path="/world/:id" />
                     </div>
                 </div>
                 <Footer />

@@ -1,0 +1,13 @@
+.fildwithtitle {
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+}
+
+.fildwithtitle h2 {
+    font-size: 35px;
+}
+
+.fildwithtitle textarea {
+    width: 20%;
+}

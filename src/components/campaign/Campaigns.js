@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import BaseMultipleContent from "../base/BaseMultipleContent";
 import "../../styles/campaigns.css";
 import LargeButton from "../base/LargeButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import BaseListLarge from "../base/BaseListLarge";
+import { create } from "../../store/campaign/campaignSlice";
+import { Link } from "react-router-dom";
 
 const Campaigns = () => {
     const { campaigns } = useSelector((state) => state.campaigns);
-    console.log(campaigns);
-    const handleClick = (e) => {
-        console.log(e);
-    };
 
     return (
         <div className="campaigns">
@@ -20,10 +18,7 @@ const Campaigns = () => {
                     <BaseListLarge>
                         {campaigns.map((campaign) => {
                             return (
-                                <LargeButton
-                                    key={campaign.id}
-                                    onClick={handleClick}
-                                >
+                                <LargeButton key={campaign.id}>
                                     {campaign.name}
                                 </LargeButton>
                             );

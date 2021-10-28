@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "../../styles/large-button.css";
-const LargeButton = (props) => {
+const LargeLinkButton = (props) => {
+    console.log(props);
     const InnerComponent = props.children;
     const onClickEvent = props.onClick;
     return (
@@ -17,4 +18,4 @@ const LargeButton = (props) => {
     );
 };
 
-export default LargeButton;
+export default LargeLinkButton;

@@ -1,13 +1,39 @@
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-25%);
+        opacity: 0;
+        pointer-events: none;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+a {
+    display: inline;
+}
+
 .largebutton {
-    height: 20%;
+    height: 100px;
+    width: 100%;
     border-radius: 5px;
-    font-size: 30px;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px var(--color-shadow-black);
     margin-bottom: 10px;
     background-color: rgba(107, 36, 36, 0.658);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: black;
+
+    pointer-events: all;
+
+    -webkit-box-shadow: 6px 6px 13px -7px var(--color-shadow-black);
+    box-shadow: 6px 6px 7px -7px var(--color-shadow-black);
+
+    /* animation: 0.7s cubic-bezier(0.25, -0.25, 0.1, 1.75) 0s 1 slideInFromLeft; */
 }
 
 .largebutton:hover {

@@ -12,6 +12,7 @@
     margin-block-start: 0px;
     font-family: Draconic, serif;
     font-weight: 100;
+    text-decoration: none;
 }
 
 p,
@@ -32,6 +33,7 @@ h1 {
     --color-grey: rgb(59, 59, 59);
     --color-light-grey: rgb(187, 187, 187);
     --color-light-yellow: #ffb489;
+    --color-shadow-black: rgba(0, 0, 0, 0.25);
 }
 
 .app {

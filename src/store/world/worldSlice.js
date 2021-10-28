@@ -5,6 +5,7 @@ export const worldSlice = createSlice({
     initialState: {
         worlds: [
             {
+                id: 0,
                 name: "Forgotten Realms",
                 lore: "Um reino muito maluquinho de altas confusões",
                 religionsAndCulture: "Zecapagodinho",
@@ -12,13 +13,15 @@ export const worldSlice = createSlice({
                 geography: "Montanhas de doces",
             },
             {
-                name: "Terra",
+                id: 1,
+                name: "TERRA",
                 lore: "Big bang dps: ....",
                 religionsAndCulture: "Carnaval",
                 government: "Eua domina é nós",
                 geography: "Maior parte de agua xD",
             },
             {
+                id: 2,
                 name: "Marte",
                 lore: "¯'\\_(ツ)_/¯",
                 religionsAndCulture: "Macaco",
