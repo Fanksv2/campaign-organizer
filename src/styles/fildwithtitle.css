@@ -1,13 +1,36 @@
 .fildwithtitle {
-    background-color: red;
     display: flex;
-    flex-direction: row;
+    flex: 1;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+
+    min-width: 400px;
+
+    margin: 0px 100px 100px 0px;
 }
 
 .fildwithtitle h2 {
     font-size: 35px;
+    text-shadow: 2px 2px 2px var(--color-shadow-black);
 }
 
 .fildwithtitle textarea {
-    width: 20%;
+    display: flex;
+    flex-grow: 1;
+    resize: none;
+    padding: 10px 10px 3px 15px;
+    text-align: justify;
+    font-size: 20px;
+
+    border-radius: 3px;
+
+    -webkit-box-shadow: 6px 6px 13px -2px var(--color-shadow-black);
+    box-shadow: 6px 6px 13px -2px var(--color-shadow-black);
+}
+
+.fildwithtitle textarea:focus {
+    border: none;
+    overflow: auto;
+    outline: 2px solid var(--color-darkblue);
 }

@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/fildwithtitle.css";
 
 const FildWithTitle = (props) => {
-    const { title } = props;
+    const { title, text } = props;
+    const [textArea, setTextArea] = useState("");
+
+    // const handleKeyDown = (e) => {
+    //     const key = e.key;
+    //     if (key === "Tab") {
+    //         setTextArea(textArea + "\t");
+    //         e.preventDefault();
+    //     }
+    // };
+
+    // const handleChange = (e) => {
+    //     const text = e.target.value;
+    //     console.log(text);
+    //     setTextArea(text);
+    // };
+
     return (
         <div className="fildwithtitle">
             <h2>{title}</h2>
-            <textarea>Um texto muito doido meu deus do ceu</textarea>
+            <textarea /*onKeyDown={handleKeyDown} onChange={handleChange}*/>
+                {text}
+            </textarea>
         </div>
     );
 };

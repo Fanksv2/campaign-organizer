@@ -1,0 +1,17 @@
+.world {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.world-content {
+    display: grid;
+    grid-template-columns: 47% 63%;
+    grid-template-rows: 40% 60%;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-content: space-between;
+}
