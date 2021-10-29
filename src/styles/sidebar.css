@@ -7,7 +7,8 @@
 
     padding: 0px 10px 20% 10px;
 
-    max-width: 50px;
+    min-width: 3%;
+    max-width: 3%;
 }
 
 .sidebar svg {

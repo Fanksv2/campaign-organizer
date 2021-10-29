@@ -1,13 +1,10 @@
 .fildwithtitle {
     display: flex;
-    flex: 1;
+    flex-grow: 1;
     flex-direction: column;
-    width: 200px;
-    height: 200px;
+    max-width: 90%;
 
-    min-width: 400px;
-
-    margin: 0px 100px 100px 0px;
+    padding-bottom: 50px;
 }
 
 .fildwithtitle h2 {
