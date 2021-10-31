@@ -64,3 +64,13 @@ h1 {
 
 .footer {
 }
+
+.disabled {
+    display: none;
+}
+
+.unclickable {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.3;
+}

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useParams, withRouter } from "react-router";
 import BaseMultipleContent from "../base/BaseMultipleContent";
 import FildWithTitle from "../base/FildWithTitle";
 import "../../styles/world.css";
 import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/world/worldSlice";
+import ModalBase from "../modal/ModalBase";
+import ModalUnsavedChanges from "../modal/ModalUnsavedChanges";
 
 const World = () => {
     const { id: idStr } = useParams();
@@ -19,8 +21,9 @@ const World = () => {
     console.log(worldDefault);
     const [world, setWorld] = useState({ ...worldDefault });
 
-    const handleSave = (e) => {
-        dispatch(update({ id, world }));
+    const comparison = {
+        old: worldDefault,
+        new: world,
     };
 
     const handleChange = (e) => {
@@ -28,6 +31,10 @@ const World = () => {
             ...world,
             [e.target.name]: e.target.value,
         });
+    };
+
+    const handleSave = () => {
+        dispatch(update({ id, world }));
     };
 
     return (
@@ -60,9 +67,12 @@ const World = () => {
                     />
                 </div>
             </BaseMultipleContent>
-            <SaveCancelButton onClickSave={handleSave} />
+            <SaveCancelButton
+                onClickSave={handleSave}
+                comparison={comparison}
+            />
         </div>
     );
 };
 
-export default World;
+export default withRouter(World);
