@@ -34,8 +34,19 @@ export const worldSlice = createSlice({
         create: (state, action) => {
             state.worlds = [...state.worlds, action.payload];
         },
+        update: (state, action) => {
+            const { id, world } = action.payload;
+            console.log(world);
+
+            for (var i in state.worlds) {
+                if (state.worlds[i].id == id) {
+                    console.log(state.worlds[i]);
+                    state.worlds[i] = { ...world };
+                }
+            }
+        },
     },
 });
 
-export const { create } = worldSlice.actions;
+export const { create, update } = worldSlice.actions;
 export default worldSlice.reducer;

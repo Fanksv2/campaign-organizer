@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const Worlds = () => {
     const { worlds } = useSelector((state) => state.worlds);
-    console.log(worlds);
 
     return (
         <div className="worlds">

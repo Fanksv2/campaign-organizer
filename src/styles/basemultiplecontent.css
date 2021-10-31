@@ -8,6 +8,7 @@
 
 .basemultiplecontent .child {
     border-top: 1px solid black;
+    border-bottom: 1px solid black;
     display: flex;
     padding-top: 30px;
     flex-grow: 1;
