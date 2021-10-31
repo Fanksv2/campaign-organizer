@@ -1,14 +1,16 @@
 import React from "react";
+import { withRouter } from "react-router";
 import "../../styles/savecancelbutton.css";
 
 const SaveCancelButton = (props) => {
     const { onClickCancel, onClickSave } = props;
-
     return (
         <div className="savecancelbutton">
             <button
                 className="cancel"
-                onClick={(e) => (onClickCancel ? onClickCancel(e) : null)}
+                onClick={(e) =>
+                    onClickCancel ? onClickCancel(e) : props.history.goBack()
+                }
             >
                 Cancel
             </button>
@@ -22,4 +24,4 @@ const SaveCancelButton = (props) => {
     );
 };
 
-export default SaveCancelButton;
+export default withRouter(SaveCancelButton);

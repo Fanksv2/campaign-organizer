@@ -39,7 +39,7 @@ export const worldSlice = createSlice({
             console.log(world);
 
             for (var i in state.worlds) {
-                if (state.worlds[i].id == id) {
+                if (state.worlds[i].id === id) {
                     console.log(state.worlds[i]);
                     state.worlds[i] = { ...world };
                 }
