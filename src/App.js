@@ -12,6 +12,8 @@ import Npcs from "./components/npc/Npcs";
 import SideBar from "./components/SideBar";
 import World from "./components/world/World";
 import Worlds from "./components/world/Worlds";
+import { Switch } from "react-router";
+import Location from "./components/locations/Location";
 
 function App() {
     return (
@@ -21,14 +23,29 @@ function App() {
                 <div className="app-middle">
                     <SideBar />
                     <div className="app-content">
-                        <Route component={Home} exact path="/" />
-                        <Route component={Dashboard} path="/dashboard" />
-                        <Route component={Campaigns} path="/campaigns" />
-                        <Route component={Worlds} path="/worlds" />
-                        <Route component={Cities} path="/cities" />
-                        <Route component={Locations} path="/locations" />
-                        <Route component={Npcs} path="/npcs" />
-                        <Route component={World} path="/world/:id" />
+                        <Switch>
+                            <Route component={Home} exact path="/" />
+                            <Route
+                                component={Dashboard}
+                                exact
+                                path="/dashboard"
+                            />
+                            <Route
+                                component={Campaigns}
+                                exact
+                                path="/campaigns"
+                            />
+                            <Route component={Worlds} exact path="/worlds" />
+                            <Route component={Cities} exact path="/cities" />
+                            <Route
+                                component={Locations}
+                                exact
+                                path="/locations"
+                            />
+                            <Route component={Npcs} exact path="/npcs" />
+                            <Route component={World} path="/worlds/:id" />
+                            <Route component={Location} path="/locations/:id" />
+                        </Switch>
                     </div>
                 </div>
                 <Footer />

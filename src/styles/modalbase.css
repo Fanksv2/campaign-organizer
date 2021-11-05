@@ -1,0 +1,95 @@
+.modalbase {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    top: 0;
+    left: 0;
+    margin: 0px;
+}
+
+.disabled {
+    display: none;
+    pointer-events: none;
+}
+
+.modalbase-container {
+    position: relative;
+    display: flex;
+
+    flex-direction: column;
+    height: 20%;
+    width: 30%;
+}
+
+.modalbase-header * {
+    display: flex;
+    flex-grow: 1;
+    background-color: var(--color-red);
+    padding: 10px 0px 10px 0px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+}
+
+.modalbase-body {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    background-color: var(--color-white);
+    padding: 20px 10px 15px 30px;
+
+    word-wrap: break-word;
+    font-size: 25px;
+}
+
+.modalbase-footer {
+    background-color: var(--color-white);
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.unsavedchanges-buttons {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    padding-top: 10px;
+
+    border-top: 1px solid black;
+}
+
+.unsavedchanges-buttons button {
+    width: 30%;
+    height: 50px;
+    border-radius: 3px;
+    padding: 0px 10px 0px 10px;
+
+    font-size: 20px;
+}
+
+.unsavedchanges-buttons button:hover {
+    opacity: 0.8;
+}
+
+.unsavedchanges-buttons .cancel {
+    background-color: var(--color-lightblue);
+}
+
+.unsavedchanges-buttons .save {
+    background-color: var(--color-darkblue);
+    color: var(--color-white);
+}

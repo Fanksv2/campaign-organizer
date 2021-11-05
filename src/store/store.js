@@ -4,6 +4,7 @@ import citySlice from "./cities/citySlice";
 import npcSlice from "./npcs/npcSlice";
 import userSlice from "./user/userSlice";
 import worldSlice from "./world/worldSlice";
+import locationSlice from "./location/locationSlice";
 
 export default configureStore({
     reducer: {
@@ -11,6 +12,8 @@ export default configureStore({
         campaigns: campaignSlice,
         worlds: worldSlice,
         npcs: npcSlice,
-        cities: citySlice,
+		locations: locationSlice,
+		cities: citySlice,
+    },
     },
 });

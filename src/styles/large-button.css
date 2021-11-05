@@ -29,6 +29,7 @@ a {
     align-items: center;
 
     pointer-events: all;
+    cursor: pointer;
 
     -webkit-box-shadow: 6px 6px 13px -7px var(--color-shadow-black);
     box-shadow: 6px 6px 7px -7px var(--color-shadow-black);

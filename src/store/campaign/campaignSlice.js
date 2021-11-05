@@ -6,15 +6,15 @@ export const campaignSlice = createSlice({
         campaigns: [
             {
                 id: 0,
-                name: "A TRAVESSIA DE SAPOPEMA",
+                name: "O REI LOUCO",
             },
             {
                 id: 1,
-                name: "ABRACADABRA",
+                name: "DRAGÃO DOURADO",
             },
             {
                 id: 2,
-                name: "O OLHO DO MARCAOLHO",
+                name: "O PORÃO DO GIGANTE",
             },
         ],
     },

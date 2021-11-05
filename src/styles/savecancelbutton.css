@@ -26,3 +26,7 @@
     background-color: var(--color-darkblue);
     color: var(--color-white);
 }
+
+.disabled {
+    display: none;
+}

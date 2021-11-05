@@ -17,7 +17,7 @@ const Worlds = () => {
                     <BaseListLarge>
                         {worlds.map((world) => {
                             return (
-                                <Link to={`/world/${world.id}`} key={world.id}>
+                                <Link to={`/worlds/${world.id}`} key={world.id}>
                                     <LargeButton>{world.name}</LargeButton>
                                 </Link>
                             );
