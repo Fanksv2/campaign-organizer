@@ -6,9 +6,11 @@ export const locationSlice = createSlice({
         locations: [
             {
                 id: 0,
-                name: "A Dungeon do Mamaco",
-                surroundingArea: "Fazendas e Mineradoras",
-                description: "Ruinas de uma mina exaurida antiga",
+                name: "A ilha do Macaco",
+                surroundingArea:
+                    "Um mar azul com areia cintilante, ao centro selvas fechadas e intocadas.",
+                description:
+                    "Ruinas escondidas de uma civilização muito antiga",
                 // encounters
             },
             {

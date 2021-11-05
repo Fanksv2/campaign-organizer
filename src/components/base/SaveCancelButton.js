@@ -11,6 +11,8 @@ const SaveCancelButton = (props) => {
         console.log(comparison);
         if (JSON.stringify(comparison.old) !== JSON.stringify(comparison.new)) {
             setModalActive(true);
+        } else {
+            props.history.goBack();
         }
     };
 

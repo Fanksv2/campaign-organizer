@@ -54,7 +54,10 @@ const Location = () => {
                     />
                 </div>
             </BaseMultipleContent>
-            <SaveCancelButton onClickSave={handleSave} />
+            <SaveCancelButton
+                onClickSave={handleSave}
+                comparison={{ old: locationDefault, new: location }}
+            />
         </div>
     );
 };

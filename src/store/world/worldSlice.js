@@ -7,10 +7,12 @@ export const worldSlice = createSlice({
             {
                 id: 0,
                 name: "Forgotten Realms",
-                lore: "Um reino muito maluquinho de altas confusões",
-                religionsAndCulture: "Zecapagodinho",
-                government: "Belo e suas estruturas de poder",
-                geography: "Montanhas de doces",
+                lore: "Um reino com muitos segredos e aventuras",
+                religionsAndCulture:
+                    "Existem diversas religiões sem predominancia. Também, a cultura e os costumes são especificos de cada cidade",
+                government: "Rei e Feudos",
+                geography:
+                    "Planicies ao cento, com florestas ao norte e mar ao sul.",
             },
             {
                 id: 1,
