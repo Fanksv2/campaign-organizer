@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import Campaigns from "./components/campaign/Campaigns";
 import Cities from "./components/city/Cities";
+import CityPage from "./components/city/CityPage";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -14,6 +15,7 @@ import World from "./components/world/World";
 import Worlds from "./components/world/Worlds";
 import { Switch } from "react-router";
 import Location from "./components/locations/Location";
+import NpcPage from "./components/npc/NpcPage";
 
 function App() {
     return (
@@ -36,13 +38,18 @@ function App() {
                                 path="/campaigns"
                             />
                             <Route component={Worlds} exact path="/worlds" />
+
                             <Route component={Cities} exact path="/cities" />
+                            <Route component={CityPage} path="/cities/:id" />
+
                             <Route
                                 component={Locations}
                                 exact
                                 path="/locations"
                             />
                             <Route component={Npcs} exact path="/npcs" />
+                            <Route component={NpcPage} path="/npcs/:id" />
+
                             <Route component={World} path="/worlds/:id" />
                             <Route component={Location} path="/locations/:id" />
                         </Switch>

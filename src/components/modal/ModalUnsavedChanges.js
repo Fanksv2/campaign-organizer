@@ -26,7 +26,7 @@ const ModalUnsavedChanges = ({ disabled, onClickSave, onClickCancel }) => {
     return (
         <div className={"unsavedchanges " + (disabled ? "" : "disabled")}>
             <ModalBase title="Unsaved Changes" footer={footer}>
-                <p>There is some unsaved changes. Do you want to save them?</p>
+                <p>There are some unsaved changes. Do you want to save them?</p>
             </ModalBase>
         </div>
     );

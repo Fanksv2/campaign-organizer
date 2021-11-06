@@ -19,7 +19,7 @@ const Npcs = () => {
                 <BaseListLarge>
                     {npcs.map((npcpage) => {   
                         return (
-                            <Link to={`/npc/${npcpage.id}`} key={npcpage.id}>
+                            <Link to={`/npcs/${npcpage.id}`} key={npcpage.id}>
                                 <LargeButton > {npcpage.name}</LargeButton>
                             </Link>
                         );

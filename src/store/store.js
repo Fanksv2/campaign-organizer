@@ -15,5 +15,4 @@ export default configureStore({
 		locations: locationSlice,
 		cities: citySlice,
     },
-    },
 });

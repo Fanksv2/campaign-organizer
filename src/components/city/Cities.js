@@ -6,6 +6,7 @@ import LargeButton from "../base/LargeButton";
 import citySlice from "../../store/cities/citySlice";
 import "../../styles/cities.css";
 import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
+import { Link } from "react-router-dom";
 
 const Cities = () => {
     const {cities} = useSelector(state => state.cities);
@@ -14,10 +15,13 @@ const Cities = () => {
         <BaseMultipleContent title = "cities">
             <div className = "cities-content">
                 <BaseListLarge>
-                    {cities.map((cities) => {
-                        return (<LargeButton key={cities.id}> 
-                            {cities.name}
-                        </LargeButton>);
+                    {cities.map((citypage) => {
+                        return (
+                            <Link to={`/cities/${citypage.id}`} key={citypage.id}>
+                                <LargeButton > {citypage.name}</LargeButton>
+                            </Link>
+                        );
+
                         })
                     }
                     <LargeButton className = "newbutton">

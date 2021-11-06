@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useParams, withRouter } from "react-router";
 import BaseMultipleContent from "../base/BaseMultipleContent";
 import FildWithTitle from "../base/FildWithTitle";
 import "../../styles/npcpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
-import { update } from "../../store/npc/npcSlice";
+import { update } from "../../store/npcs/npcSlice";
+import ModalBase from "../modal/ModalBase";
+import ModalUnsavedChanges from "../modal/ModalUnsavedChanges";
 
 //Esta será a página que terá os detalhes de um determinado NPC
 const NpcPage = () => {
@@ -31,12 +33,16 @@ const NpcPage = () => {
         });
     };
     
-    //Fanks, como funciona o FildWithTitle?
+    const comparison = {
+        old: npcpageDefault,
+        new: npcpage,
+    }
+
     return ( 
         <div className = "npcpage">
             <BaseMultipleContent title = {npcpage.name}>
 
-                <div className = "npc-content">
+                <div className = "npcpage-content">
                     <FildWithTitle
                         title = "Occupation"
                         text = {npcpage.occupation}
@@ -64,9 +70,9 @@ const NpcPage = () => {
 
 
             </BaseMultipleContent>
-            <SaveCancelButton onClickSave={handleSave} />
+            <SaveCancelButton onClickSave={handleSave} comparison={comparison}/>
         </div>
     );
 };
 
-export default NpcPage
+export default withRouter(NpcPage);
