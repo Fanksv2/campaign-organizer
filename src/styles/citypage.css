@@ -1,0 +1,12 @@
+.citypage {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.citypage-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    flex: 1;
+}

@@ -6,6 +6,7 @@ import ModalUnsavedChanges from "../modal/ModalUnsavedChanges";
 const SaveCancelButton = (props) => {
     const { onClickCancel, onClickSave, comparison } = props;
     const [modalActive, setModalActive] = useState(false);
+    const [salvar, setSalvar] = useState(false);
 
     const handleCancel = (e) => {
         console.log(comparison);
@@ -15,6 +16,11 @@ const SaveCancelButton = (props) => {
             props.history.goBack();
         }
     };
+
+    const handleSave = (e) =>{
+        setSalvar(true);
+    }
+
 
     return (
         <div className="savecancelbutton">
@@ -28,8 +34,9 @@ const SaveCancelButton = (props) => {
             </button>
             <button
                 className={"save"}
-                onClick={() => {
-                    return onClickSave ? onClickSave() : null;
+                onClick={(e) => {
+                    
+                    return onClickSave ? onClickSave : null; //Display mensagem
                 }}
             >
                 Save
