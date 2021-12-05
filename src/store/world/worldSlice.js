@@ -3,34 +3,33 @@ import { createSlice } from "@reduxjs/toolkit";
 export const worldSlice = createSlice({
     name: "worlds",
     initialState: {
-        worlds: [
-            {
-                id: 0,
-                name: "Forgotten Realms",
-                lore: "Um reino com muitos segredos e aventuras",
-                religionsAndCulture:
-                    "Existem diversas religiões sem predominancia. Também, a cultura e os costumes são especificos de cada cidade",
-                government: "Rei e Feudos",
-                geography:
-                    "Planicies ao cento, com florestas ao norte e mar ao sul.",
-            },
-            {
-                id: 1,
-                name: "TERRA",
-                lore: "Big bang dps: ....",
-                religionsAndCulture: "Carnaval",
-                government: "Eua domina é nós",
-                geography: "Maior parte de agua xD",
-            },
-            {
-                id: 2,
-                name: "Marte",
-                lore: "¯'\\_(ツ)_/¯",
-                religionsAndCulture: "Macaco",
-                government: "Viva marte",
-                geography: "Areia é nois",
-            },
-        ],
+        worlds: [],
+        // {
+        //     id: 0,
+        //     name: "Forgotten Realms",
+        //     lore: "Um reino com muitos segredos e aventuras",
+        //     religionsAndCulture:
+        //         "Existem diversas religiões sem predominancia. Também, a cultura e os costumes são especificos de cada cidade",
+        //     government: "Rei e Feudos",
+        //     geography:
+        //         "Planicies ao cento, com florestas ao norte e mar ao sul.",
+        // },
+        // {
+        //     id: 1,
+        //     name: "TERRA",
+        //     lore: "Big bang dps: ....",
+        //     religionsAndCulture: "Carnaval",
+        //     government: "Eua domina é nós",
+        //     geography: "Maior parte de agua xD",
+        // },
+        // {
+        //     id: 2,
+        //     name: "Marte",
+        //     lore: "¯'\\_(ツ)_/¯",
+        //     religionsAndCulture: "Macaco",
+        //     government: "Viva marte",
+        //     geography: "Areia é nois",
+        // },
     },
     reducers: {
         create: (state, action) => {
@@ -47,8 +46,11 @@ export const worldSlice = createSlice({
                 }
             }
         },
+        setWorlds: (state, action) => {
+            state.worlds = action.payload;
+        },
     },
 });
 
-export const { create, update } = worldSlice.actions;
+export const { create, update, setWorlds } = worldSlice.actions;
 export default worldSlice.reducer;

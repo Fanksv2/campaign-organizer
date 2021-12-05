@@ -16,12 +16,27 @@
     margin-right: 40px;
 }
 
-.header p {
+.header button {
+    background-color: transparent;
     margin-left: 100px;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.header button:hover {
+    text-decoration: underline;
 }
 
 .header h1 {
     font-size: 50px;
     color: var(--color-white);
+}
+
+.header p {
+    font-size: 20px;
+    color: var(--color-white);
+    border: 1px solid white;
+    padding: 0px 20px 0px 20px;
+    border-radius: 3px;
+    cursor: default;
 }

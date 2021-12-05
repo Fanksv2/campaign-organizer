@@ -8,15 +8,18 @@ import { ReactComponent as CompassIcon } from "../assets/icons/compass.svg";
 import { ReactComponent as CampingIcon } from "../assets/icons/camping.svg";
 import { ReactComponent as DashboardIcon } from "../assets/icons/swords.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SideBar = (props) => {
     const currentPageHtml = () => {
-        console.log(window.location.pathname.split("/")[1]);
         return window.location.pathname.split("/")[1];
     };
     const [currentPage, setCurrentPage] = useState(currentPageHtml());
     const active = "active";
+
+    useEffect(() => {
+        setCurrentPage(currentPageHtml());
+    });
 
     const handleClick = (e) => {
         setCurrentPage(e.target.id);
@@ -24,15 +27,6 @@ const SideBar = (props) => {
 
     return (
         <div className="sidebar">
-            <Link
-                to="/dashboard"
-                id="dashboard"
-                onClick={(e) => handleClick(e)}
-            >
-                <DashboardIcon
-                    className={`${currentPage === "dashboard" ? active : ""} `}
-                />
-            </Link>
             <Link
                 to="/campaigns"
                 id="campaigns"
@@ -42,6 +36,16 @@ const SideBar = (props) => {
                     className={`${currentPage === "campaigns" ? active : ""}`}
                 />
             </Link>
+            <Link
+                to="/dashboard"
+                id="dashboard"
+                onClick={(e) => handleClick(e)}
+            >
+                <DashboardIcon
+                    className={`${currentPage === "dashboard" ? active : ""} `}
+                />
+            </Link>
+
             <Link to="/worlds" id="worlds" onClick={(e) => handleClick(e)}>
                 <WorldIcon
                     className={`${currentPage === "worlds" ? active : ""}`}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FildWithTitle from "../base/FildWithTitle";
 import { useSelector } from "react-redux";
 import BaseListLarge from "../base/BaseListLarge";
@@ -7,9 +7,16 @@ import LargeButton from "../base/LargeButton";
 import "../../styles/locations.css";
 import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import { Link } from "react-router-dom";
+import { getLocations } from "../../store/location/location";
+import { useDispatch } from "react-redux";
 
 const Locations = () => {
     const { locations } = useSelector((state) => state.locations);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        getLocations(dispatch);
+    }, []);
 
     return (
         <div className="locations">
@@ -19,16 +26,18 @@ const Locations = () => {
                         {locations.map((location) => {
                             return (
                                 <Link
-                                    to={`/locations/${location.id}`}
-                                    key={location.id}
+                                    to={`/locations/${location._id}`}
+                                    key={location._id}
                                 >
                                     <LargeButton>{location.name}</LargeButton>
                                 </Link>
                             );
                         })}
-                        <LargeButton className="newbutton">
-                            NEW <PlusIcon />
-                        </LargeButton>
+                        <Link to="/locations/new">
+                            <LargeButton className="newbutton">
+                                NEW <PlusIcon />
+                            </LargeButton>
+                        </Link>
                     </BaseListLarge>
                 </div>
             </BaseMultipleContent>

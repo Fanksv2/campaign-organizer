@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BaseMultipleContent from "../base/BaseMultipleContent";
 import "../../styles/campaigns.css";
 import LargeButton from "../base/LargeButton";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import BaseListLarge from "../base/BaseListLarge";
-import { create } from "../../store/campaign/campaignSlice";
-import { Link } from "react-router-dom";
+import { getCampaigns } from "../../store/campaign/campaign";
+import { setCampaignChoosed } from "../../store/campaign/campaignSlice";
 
 const Campaigns = () => {
-    const { campaigns } = useSelector((state) => state.campaigns);
+    const { campaigns, campaignChoosed } = useSelector(
+        (state) => state.campaigns
+    );
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        getCampaigns(dispatch);
+    }, []);
+
+    const handleClick = (id) => {
+        localStorage.setItem("@thelorekeeper-campaign", id);
+        dispatch(setCampaignChoosed(true));
+        console.log(campaignChoosed);
+    };
 
     return (
         <div className="campaigns">
@@ -18,7 +31,10 @@ const Campaigns = () => {
                     <BaseListLarge>
                         {campaigns.map((campaign) => {
                             return (
-                                <LargeButton key={campaign.id}>
+                                <LargeButton
+                                    key={campaign._id}
+                                    onClick={() => handleClick(campaign._id)}
+                                >
                                     {campaign.name}
                                 </LargeButton>
                             );

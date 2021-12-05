@@ -3,33 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const locationSlice = createSlice({
     name: "locations",
     initialState: {
-        locations: [
-            {
-                id: 0,
-                name: "A ilha do Macaco",
-                surroundingArea:
-                    "Um mar azul com areia cintilante, ao centro selvas fechadas e intocadas.",
-                description:
-                    "Ruinas escondidas de uma civilização muito antiga",
-                // encounters
-            },
-            {
-                id: 1,
-                name: "A sala do trono",
-                surroundingArea:
-                    "Localizado dentro do castelo perdido do drácula",
-                description:
-                    "Brilho dourado de riquezas até onde os olhos podem enxergar",
-                // encounters
-            },
-            {
-                id: 2,
-                name: "A casa do mago",
-                surroundingArea: "Campo verde florido",
-                description: "Casa embutida em uma grande árvore",
-                // encounters
-            },
-        ],
+        locations: [],
     },
     reducers: {
         create: (state, action) => {
@@ -45,8 +19,11 @@ export const locationSlice = createSlice({
                 }
             }
         },
+        setLocations: (state, action) => {
+            state.locations = action.payload;
+        },
     },
 });
 
-export const { create, update } = locationSlice.actions;
+export const { create, update, setLocations } = locationSlice.actions;
 export default locationSlice.reducer;

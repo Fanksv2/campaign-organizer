@@ -6,19 +6,27 @@ import "../../styles/world.css";
 import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/world/worldSlice";
-import ModalBase from "../modal/ModalBase";
-import ModalUnsavedChanges from "../modal/ModalUnsavedChanges";
+import { createWorld, updateWorld } from "../../store/world/world";
 
 const World = () => {
-    const { id: idStr } = useParams();
-    const id = parseInt(idStr);
+    const { id } = useParams();
+    const isNew = id === "new";
     const dispatch = useDispatch();
     const { worlds } = useSelector((state) => state.worlds);
-    const worldDefault = worlds.find((world) => {
-        return world.id === id;
+    let worldDefault = worlds.find((world) => {
+        return world._id === id;
     });
 
-    console.log(worldDefault);
+    if (isNew) {
+        worldDefault = {
+            name: "NEW",
+            lore: "",
+            religionsAndCulture: "",
+            government: "",
+            geography: "",
+        };
+    }
+
     const [world, setWorld] = useState({ ...worldDefault });
 
     const comparison = {
@@ -34,7 +42,11 @@ const World = () => {
     };
 
     const handleSave = () => {
-        dispatch(update({ id, world }));
+        if (isNew) {
+            createWorld(dispatch, world);
+        } else {
+            updateWorld(dispatch, world);
+        }
     };
 
     return (

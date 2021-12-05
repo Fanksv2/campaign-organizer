@@ -1,29 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import BaseMultipleContent from "../base/BaseMultipleContent";
 import "../../styles/location.css";
 import FildWithTitle from "../base/FildWithTitle";
 import SaveCancelButton from "../base/SaveCancelButton";
-import { update } from "../../store/location/locationSlice";
+import { createLocation, updateLocation } from "../../store/location/location";
 
 const Location = () => {
-    const { id: idStr } = useParams();
-    const id = parseInt(idStr);
+    const { id } = useParams();
+    const isNew = id === "new";
+
     const dispatch = useDispatch();
 
     const { locations: locationsDefault } = useSelector(
         (state) => state.locations
     );
-    const locationDefault = locationsDefault.find((location) => {
-        return location.id === id;
+    let locationDefault = locationsDefault.find((location) => {
+        return location._id === id;
     });
 
-    console.log(locationDefault);
+    if (isNew) {
+        locationDefault = {
+            name: "NEW",
+            surroundingArea: "",
+            description: "",
+        };
+    }
 
     const [location, setLocation] = useState({ ...locationDefault });
-
-    console.log(location.name);
 
     const handleChange = (e) => {
         setLocation({
@@ -33,7 +38,11 @@ const Location = () => {
     };
 
     const handleSave = (e) => {
-        dispatch(update({ id, location }));
+        if (isNew) {
+            createLocation(dispatch, location);
+        } else {
+            updateLocation(dispatch, location);
+        }
     };
 
     return (
