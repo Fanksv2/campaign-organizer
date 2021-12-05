@@ -81,7 +81,7 @@ function App() {
                                             <Redirect to="/campaigns" />
                                         ) : null}
                                         <Route
-                                            component={Home}
+                                            component={Campaigns}
                                             exact
                                             path="/"
                                         />
