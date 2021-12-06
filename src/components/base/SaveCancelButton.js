@@ -17,10 +17,9 @@ const SaveCancelButton = (props) => {
         }
     };
 
-    const handleSave = (e) =>{
+    const handleSave = (e) => {
         setSalvar(true);
-    }
-
+    };
 
     return (
         <div className="savecancelbutton">
@@ -35,8 +34,7 @@ const SaveCancelButton = (props) => {
             <button
                 className={"save"}
                 onClick={(e) => {
-                    
-                    return onClickSave ? onClickSave : null; //Display mensagem
+                    return onClickSave ? onClickSave() : null; //Display mensagem
                 }}
             >
                 Save

@@ -22,6 +22,7 @@ import { getCampaigns } from "./store/campaign/campaign";
 import { setCampaignChoosed } from "./store/campaign/campaignSlice";
 import { setLocations } from "./store/location/locationSlice";
 import { setWorlds } from "./store/world/worldSlice";
+import Login from "./components/auth/Login";
 function App() {
     const { user } = useSelector((state) => state.user);
     const { campaignChoosed } = useSelector((state) => state.campaigns);
@@ -54,7 +55,7 @@ function App() {
         <div className="app">
             <BrowserRouter>
                 <Header />
-<Switch>
+                <Switch>
                     <div className="app-middle">
                         {!user.isAuthenticated ? (
                             <Fragment>
@@ -66,7 +67,6 @@ function App() {
                                 />
                             </Fragment>
                         ) : null}
-
                         {user.isAuthenticated ? (
                             <Fragment>
                                 <SideBar />
@@ -118,10 +118,19 @@ function App() {
                                             component={Location}
                                             path="/locations/:id"
                                         />
+                                        <Route
+                                            component={CityPage}
+                                            path="/cities/:id"
+                                        />
+                                        <Route
+                                            component={NpcPage}
+                                            path="/npcs/:id"
+                                        />
                                     </Switch>
                                 </div>
                             </Fragment>
-                        ) : null}                    </div>
+                        ) : null}{" "}
+                    </div>
                 </Switch>
                 <Footer />
             </BrowserRouter>
