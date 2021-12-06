@@ -1,0 +1,10 @@
+.cities {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.cities-content {
+    width: 100%;
+    height: 100%;
+}

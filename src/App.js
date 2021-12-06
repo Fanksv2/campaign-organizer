@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import Campaigns from "./components/campaign/Campaigns";
 import Cities from "./components/city/Cities";
+import CityPage from "./components/city/CityPage";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -14,14 +15,13 @@ import World from "./components/world/World";
 import Worlds from "./components/world/Worlds";
 import { Redirect, Switch } from "react-router";
 import Location from "./components/locations/Location";
-import Login from "./components/auth/Login";
+import NpcPage from "./components/npc/NpcPage";
 import Register from "./components/auth/Register";
 import { useDispatch, useSelector } from "react-redux";
 import { getCampaigns } from "./store/campaign/campaign";
 import { setCampaignChoosed } from "./store/campaign/campaignSlice";
 import { setLocations } from "./store/location/locationSlice";
 import { setWorlds } from "./store/world/worldSlice";
-
 function App() {
     const { user } = useSelector((state) => state.user);
     const { campaignChoosed } = useSelector((state) => state.campaigns);
@@ -54,7 +54,7 @@ function App() {
         <div className="app">
             <BrowserRouter>
                 <Header />
-                <Switch>
+<Switch>
                     <div className="app-middle">
                         {!user.isAuthenticated ? (
                             <Fragment>
@@ -121,8 +121,7 @@ function App() {
                                     </Switch>
                                 </div>
                             </Fragment>
-                        ) : null}
-                    </div>
+                        ) : null}                    </div>
                 </Switch>
                 <Footer />
             </BrowserRouter>

@@ -1,0 +1,54 @@
+.notification-base {
+    position: absolute;
+    display: flex;
+    left: 75%;
+    background-color: #77b300;
+    /* border-radius: ; */
+    align-items: center;
+    justify-content: center;
+
+}
+
+.success-message {
+    background-color: #77b300;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+
+}
+
+.close-btn {
+    color: white;
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: gray;
+}
+
+&-show{
+    animation: warning 400ms ease-in-out forwards;
+    display: flex;
+}
+
+
+/* Código antigo
+.notification-container {
+    font-size: 14px;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.bottom-right {
+    bottom: 12px;
+    right: 12px;
+    transition: transform .6s ease-in-out;
+    animation: toast-in-right .7s;
+}
+*/
