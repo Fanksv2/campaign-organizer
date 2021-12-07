@@ -6,6 +6,7 @@ import "../../styles/npcpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { createNpc, updateNpc } from "../../store/npcs/npc";
+import EditableTitle from "../base/EditableTitle";
 
 //Esta será a página que terá os detalhes de um determinado NPC
 const NpcPage = () => {
@@ -20,7 +21,7 @@ const NpcPage = () => {
 
     if (isNew) {
         npcpageDefault = {
-            name: "NEW",
+            name: "",
             occupation: "",
             description: "",
             personality: "",
@@ -28,6 +29,13 @@ const NpcPage = () => {
     }
 
     const [npcpage, setNpc] = useState({ ...npcpageDefault });
+
+    const setName = (name) => {
+        setNpc({
+            ...npcpage,
+            name,
+        });
+    };
 
     const handleSave = (e) => {
         console.log(npcpage);
@@ -52,7 +60,7 @@ const NpcPage = () => {
 
     return (
         <div className="npcpage">
-            <BaseMultipleContent title={npcpage.name}>
+            <BaseMultipleContent title={<EditableTitle initialTitle = {npcpage.name} setValue = {setName}/>}>
                 <div className="npcpage-content">
                     <FildWithTitle
                         title="Occupation"

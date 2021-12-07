@@ -6,6 +6,7 @@ import "../../styles/location.css";
 import FildWithTitle from "../base/FildWithTitle";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { createLocation, updateLocation } from "../../store/location/location";
+import EditableTitle from "../base/EditableTitle";
 
 const Location = () => {
     const { id } = useParams();
@@ -30,6 +31,13 @@ const Location = () => {
 
     const [location, setLocation] = useState({ ...locationDefault });
 
+    const setName = (name) => {
+        setLocation({
+            ...location,
+            name,
+        });
+    };
+
     const handleChange = (e) => {
         setLocation({
             ...location,
@@ -47,7 +55,7 @@ const Location = () => {
 
     return (
         <div className="location">
-            <BaseMultipleContent title={location.name}>
+            <BaseMultipleContent title={<EditableTitle initialTitle = {location.name} setValue = {setName}/>}>
                 <div className="location-content">
                     <FildWithTitle
                         title="Surrounding Area"

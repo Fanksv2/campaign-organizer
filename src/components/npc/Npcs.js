@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 const Npcs = () => {
     const { npcs } = useSelector((state) => state.npcs);
 
-    //Erros dentro 'do Link to', pq??????????: 'npcpage' is not defined  no-undef
     return (
         <div className="npcs">
             <BaseMultipleContent title="NPCs">

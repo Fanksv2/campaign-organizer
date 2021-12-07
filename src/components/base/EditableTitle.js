@@ -18,7 +18,7 @@ const EditableTitle = (props) => {
         <div >
             {/* TODO: receber um input, handleChange e um state 
             fanks: de onde estamos puxando os titulos? Onde vamos salvar essas informações?*/}
-            <input id = "titleInput" onChange = {(e) => handleChange(e)} value = {title}>
+            <input id = "titleInput" placeholder = "EDIT TITLE HERE" onChange = {(e) => handleChange(e)} value = {title}>
                 
             </input>
         </div>

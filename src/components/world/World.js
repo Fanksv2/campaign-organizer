@@ -20,7 +20,7 @@ const World = () => {
 
     if (isNew) {
         worldDefault = {
-            name: "NEW",
+            name: "",
             lore: "",
             religionsAndCulture: "",
             government: "",
