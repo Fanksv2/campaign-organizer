@@ -7,14 +7,15 @@ export const locationSlice = createSlice({
     },
     reducers: {
         create: (state, action) => {
-            state.locations = [...state.locations, action];
+            state.locations = [...state.locations, action.payload];
+            console.log(state.locations);
         },
         update: (state, action) => {
-            const { id, location } = action.payload;
+            const location = action.payload;
+            const { _id: id } = location;
 
             for (var i in state.locations) {
-                if (state.locations[i].id === id) {
-                    console.log(state.locations[i]);
+                if (state.locations[i]._id === id) {
                     state.locations[i] = { ...location };
                 }
             }

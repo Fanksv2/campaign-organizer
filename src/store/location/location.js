@@ -19,6 +19,7 @@ export const createLocation = async (dispatch, location) => {
     return await api
         .post("/location", { location })
         .then((res) => {
+            console.log(res.data.location);
             dispatch(create(res.data.location));
         })
         .catch((err) => {
