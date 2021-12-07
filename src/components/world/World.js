@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/world/worldSlice";
 import { createWorld, updateWorld } from "../../store/world/world";
+import EditableTitle from "../base/EditableTitle";
 
 const World = () => {
     const { id } = useParams();
@@ -28,6 +29,13 @@ const World = () => {
     }
 
     const [world, setWorld] = useState({ ...worldDefault });
+
+    const setName = (name) => {
+        setWorld({
+            ...world,
+            name,
+        });
+    };
 
     const comparison = {
         old: worldDefault,
@@ -51,7 +59,7 @@ const World = () => {
 
     return (
         <div className="world">
-            <BaseMultipleContent title={world.name}>
+            <BaseMultipleContent title={<EditableTitle initialTitle = {world.name} setValue = {setName}/>}>
                 <div className="world-content">
                     <FildWithTitle
                         title="Lore"
