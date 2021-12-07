@@ -22,6 +22,7 @@ import { getCampaigns } from "./store/campaign/campaign";
 import { setCampaignChoosed } from "./store/campaign/campaignSlice";
 import { setLocations } from "./store/location/locationSlice";
 import { setWorlds } from "./store/world/worldSlice";
+import { setNpcs } from "./store/npcs/npcSlice";
 import Login from "./components/auth/Login";
 function App() {
     const { user } = useSelector((state) => state.user);
@@ -41,9 +42,11 @@ function App() {
                     (campaign) => campaignId === campaign._id
                 );
                 if (campaign) {
+                    console.log(campaign);
                     dispatch(setCampaignChoosed(true));
                     dispatch(setLocations(campaign.content.locations));
                     dispatch(setWorlds(campaign.content.worlds));
+                    dispatch(setNpcs(campaign.content.npcs));
                 }
             }
         }

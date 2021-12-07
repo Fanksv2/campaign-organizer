@@ -37,7 +37,6 @@ export const worldSlice = createSlice({
         },
         update: (state, action) => {
             const { id, world } = action.payload;
-            console.log(world);
 
             for (var i in state.worlds) {
                 if (state.worlds[i].id === id) {
