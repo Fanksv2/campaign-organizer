@@ -24,6 +24,7 @@ import { setLocations } from "./store/location/locationSlice";
 import { setWorlds } from "./store/world/worldSlice";
 import { setNpcs } from "./store/npcs/npcSlice";
 import Login from "./components/auth/Login";
+import { setCities } from "./store/cities/citySlice";
 function App() {
     const { user } = useSelector((state) => state.user);
     const { campaignChoosed } = useSelector((state) => state.campaigns);
@@ -47,6 +48,7 @@ function App() {
                     dispatch(setLocations(campaign.content.locations));
                     dispatch(setWorlds(campaign.content.worlds));
                     dispatch(setNpcs(campaign.content.npcs));
+                    dispatch(setCities(campaign.content.cities));
                 }
             }
         }

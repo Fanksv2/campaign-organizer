@@ -17,16 +17,18 @@ const Cities = () => {
                 <BaseListLarge>
                     {cities.map((citypage) => {
                         return (
-                            <Link to={`/cities/${citypage.id}`} key={citypage.id}>
+                            <Link to={`/cities/${citypage._id}`} key={citypage._id}>
                                 <LargeButton > {citypage.name}</LargeButton>
                             </Link>
                         );
 
                         })
                     }
-                    <LargeButton className = "newbutton">
-                        NEW <PlusIcon></PlusIcon>
-                    </LargeButton>
+                    <Link to={"/cities/new"}>
+                            <LargeButton className="newbutton">
+                                NEW <PlusIcon />
+                            </LargeButton>
+                    </Link>
                 </BaseListLarge>
             </div>
         </BaseMultipleContent>

@@ -6,23 +6,44 @@ import FildWithTitle from "../base/FildWithTitle";
 import "../../styles/citypage.css";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/cities/citySlice";
+import EditableTitle from "../base/EditableTitle";
+import { createCity, updateCity } from "../../store/cities/city";
+
 
 const CityPage = () => {
-    const { id: idStr } = useParams();
-    const id = parseInt(idStr);
+    const { id } = useParams();
+    const isNew = id === "new";
     const dispatch = useDispatch();
     const { cities } = useSelector((state) => state.cities);
-    const citypageDefault = cities.find((citypage) => {
-        return citypage.id === id;
+    let citypageDefault = cities.find((citypage) => {
+        return citypage._id === id;
     });
 
-    console.log(citypageDefault);
+    if(isNew){
+        citypageDefault = {
+            name: "",
+            size: "",
+            government: "",
+            pointsOfInterest: "",
+            npcs: "",
+        };
+    }
+
     const [citypage, setCity] = useState({ ...citypageDefault });
 
-    console.log(citypage);
+    const setName = (name) => {
+        setCity({
+            ...citypage,
+            name,
+        });
+    };
 
     const handleSave = (e) => {
-        dispatch(update({ id, citypage }));
+        if (isNew) {
+            createCity(dispatch, citypage);
+        } else {
+            updateCity(dispatch, citypage);
+        }
     };
 
     const handleChange = (e) => {
@@ -39,7 +60,7 @@ const CityPage = () => {
 
     return (
         <div className="citypage">
-            <BaseMultipleContent title={citypage.name}>
+            <BaseMultipleContent title={<EditableTitle initialTitle = {citypage.name} setValue = {setName}/>}>
                 <div className="citypage-content">
                     <FildWithTitle
                         title="Size"
