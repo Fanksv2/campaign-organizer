@@ -36,3 +36,15 @@ export const updateWorld = async (dispatch, world) => {
             console.log(err);
         });
 };
+
+export const deleteWorld = async (dispatch, world) => {
+    return await api
+        .delete("/world", {world})
+        .then((res) => {
+            //adicionar o que vai acontecer
+            dispatch(delete(res.data.world));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}

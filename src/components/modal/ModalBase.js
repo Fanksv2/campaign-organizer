@@ -1,9 +1,13 @@
 import React from "react";
 import "../../styles/modalbase.css";
 
-const ModalBase = ({ title, children, footer }) => {
+const ModalBase = ({ title, children, footer, onClickVoidDismiss }) => {
     return (
-        <div className="modalbase">
+        <div className="modalbase"
+            onClick={() => {
+                onClickVoidDismiss();
+            }}
+        >
             <div className="modalbase-container">
                 <div className="modalbase-header">
                     <h1>{title}</h1>
