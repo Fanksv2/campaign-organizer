@@ -1,0 +1,8 @@
+.dashboard {
+    flex: 1;
+    display: flex;
+}
+
+.dashboard-content {
+    flex: 1;
+}
