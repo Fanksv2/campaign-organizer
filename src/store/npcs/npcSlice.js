@@ -40,7 +40,8 @@ export const npcSlice = createSlice({
         },
 
         update: (state, action) => {
-            const { _id, npcpage } = action.payload;
+            const npcpage = action.payload;
+            const { _id } = npcpage;
             console.log(npcpage);
 
             for (var i in state.npcs) {

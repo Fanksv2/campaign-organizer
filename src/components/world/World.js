@@ -59,7 +59,14 @@ const World = () => {
 
     return (
         <div className="world">
-            <BaseMultipleContent title={<EditableTitle initialTitle = {world.name} setValue = {setName}/>}>
+            <BaseMultipleContent
+                title={
+                    <EditableTitle
+                        initialTitle={world.name}
+                        setValue={setName}
+                    />
+                }
+            >
                 <div className="world-content">
                     <FildWithTitle
                         title="Lore"
