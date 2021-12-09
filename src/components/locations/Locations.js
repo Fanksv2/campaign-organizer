@@ -9,6 +9,7 @@ import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import { Link } from "react-router-dom";
 import { getLocations } from "../../store/location/location";
 import { useDispatch } from "react-redux";
+import LinkList from "../base/LinkList";
 
 const Locations = () => {
     const { locations } = useSelector((state) => state.locations);

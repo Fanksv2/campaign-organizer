@@ -7,34 +7,37 @@ import citySlice from "../../store/cities/citySlice";
 import "../../styles/cities.css";
 import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import { Link } from "react-router-dom";
+import LinkList from "../base/LinkList";
 
 const Cities = () => {
-    const {cities} = useSelector(state => state.cities);
+    const { cities } = useSelector((state) => state.cities);
 
-    return (<div className="cities">
-        <BaseMultipleContent title = "cities">
-            <div className = "cities-content">
-                <BaseListLarge>
-                    {cities.map((citypage) => {
-                        return (
-                            <Link to={`/cities/${citypage._id}`} key={citypage._id}>
-                                <LargeButton > {citypage.name}</LargeButton>
-                            </Link>
-                        );
+    const { worlds } = useSelector((state) => state.worlds);
 
-                        })
-                    }
-                    <Link to={"/cities/new"}>
+    return (
+        <div className="cities">
+            <BaseMultipleContent title="cities">
+                <div className="cities-content">
+                    <BaseListLarge>
+                        {cities.map((citypage) => {
+                            return (
+                                <Link
+                                    to={`/cities/${citypage._id}`}
+                                    key={citypage._id}
+                                >
+                                    <LargeButton> {citypage.name}</LargeButton>
+                                </Link>
+                            );
+                        })}
+                        <Link to={"/cities/new"}>
                             <LargeButton className="newbutton">
                                 NEW <PlusIcon />
                             </LargeButton>
-                    </Link>
-                </BaseListLarge>
-            </div>
-        </BaseMultipleContent>
-    
-    
-    </div>
+                        </Link>
+                    </BaseListLarge>
+                </div>
+            </BaseMultipleContent>
+        </div>
     );
 };
 

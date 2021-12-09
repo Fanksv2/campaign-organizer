@@ -7,11 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { createNpc, updateNpc } from "../../store/npcs/npc";
 import EditableTitle from "../base/EditableTitle";
+import ModalLink from "../modal/ModalLink";
+import { setLocations } from "../../store/location/locationSlice";
+import { setNpcs } from "../../store/npcs/npcSlice";
 
 //Esta será a página que terá os detalhes de um determinado NPC
 const NpcPage = () => {
     const { id } = useParams();
     const isNew = id === "new";
+
+    const { locations } = useSelector((state) => state.locations);
 
     const dispatch = useDispatch();
     const { npcs } = useSelector((state) => state.npcs);
@@ -34,6 +39,13 @@ const NpcPage = () => {
         setNpc({
             ...npcpage,
             name,
+        });
+    };
+
+    const setLink = (link) => {
+        setNpc({
+            ...npcpage,
+            link,
         });
     };
 
@@ -60,7 +72,14 @@ const NpcPage = () => {
 
     return (
         <div className="npcpage">
-            <BaseMultipleContent title={<EditableTitle initialTitle = {npcpage.name} setValue = {setName}/>}>
+            <BaseMultipleContent
+                title={
+                    <EditableTitle
+                        initialTitle={npcpage.name}
+                        setValue={setName}
+                    />
+                }
+            >
                 <div className="npcpage-content">
                     <FildWithTitle
                         title="Occupation"
@@ -84,10 +103,19 @@ const NpcPage = () => {
                     ></FildWithTitle>
                 </div>
             </BaseMultipleContent>
-            <SaveCancelButton
-                onClickSave={handleSave}
-                comparison={comparison}
-            />
+            <div className="content-footer">
+                <SaveCancelButton
+                    onClickSave={handleSave}
+                    comparison={comparison}
+                />
+                <ModalLink
+                    list={locations.map((location) => {
+                        return { name: location.name, _id: location._id };
+                    })}
+                    setLink={setLink}
+                    linkedTo={npcpage.link}
+                />
+            </div>
         </div>
     );
 };
