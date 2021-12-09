@@ -27,6 +27,11 @@
     color: var(--color-white);
 }
 
+.savecancelbutton .delete {
+    background-color: rgb(167, 2, 2);
+    color: var(--color-white);
+}
+
 .disabled {
     display: none;
 }

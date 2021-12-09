@@ -6,16 +6,18 @@ const ModalUnsavedChanges = ({ disabled, onClickSave, onClickCancel }) => {
         <div className="unsavedchanges-buttons">
             <button
                 className="cancel"
-                onClick={() => {
+                onClick={(e) => {
                     onClickCancel();
+                    e.stopPropagation();
                 }}
             >
                 Exit without save
             </button>
             <button
                 className="save"
-                onClick={() => {
+                onClick={(e) => {
                     onClickSave();
+                    e.stopPropagation();
                 }}
             >
                 Save

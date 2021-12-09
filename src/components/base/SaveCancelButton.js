@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
 import "../../styles/savecancelbutton.css";
+import ModalDelete from "../modal/ModalDelete";
 import ModalSaved from "../modal/ModalSaved";
 import ModalUnsavedChanges from "../modal/ModalUnsavedChanges";
 
 
 const SaveCancelButton = (props) => {
-    const { onClickCancel, onClickSave, comparison } = props;
+    const { onClickCancel, onClickSave, onClickDelete, comparison } = props;
     const [modalActive, setModalActive] = useState(false);
     const [modalSavedActive, setModalSavedActive] = useState(false);
+    const [modalDeleteActive, setModalDeleteActive] = useState(false);
 
     const handleCancel = (e) => {
         console.log(comparison);
@@ -38,14 +40,24 @@ const SaveCancelButton = (props) => {
             >
                 Save
             </button>
+            <button
+                className={"delete"}
+                onClick={(e) => {
+                    //Add coisas
+                    setModalDeleteActive(true); 
+                    //return onClickDelete ? onClickDelete() : null;
+                }}
+            >
+                Delete
+            </button>
             <ModalUnsavedChanges
                 disabled={modalActive}
-                onClickSave={() => {
+                onClickSave={(e) => {
                     setModalActive(false);
-                    setModalSavedActive(true);
+                    setModalSavedActive(true);                
                     return onClickSave ? onClickSave() : null;
                 }}
-                onClickCancel={() => {
+                onClickCancel={(e) => {
                     props.history.goBack();
                     setModalActive(false);
                 }}
@@ -54,6 +66,12 @@ const SaveCancelButton = (props) => {
                 disabled={modalSavedActive}
                 onClickDismiss={() => {
                     setModalSavedActive(false);
+                }}
+            />
+            <ModalDelete
+                disabled={modalDeleteActive}
+                onClickDismiss={() => {
+                    setModalDeleteActive(false);
                 }}
             />
         </div>
