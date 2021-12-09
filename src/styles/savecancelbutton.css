@@ -1,7 +1,7 @@
 .savecancelbutton {
     display: flex;
     justify-content: flex-start;
-    flex: 0.2;
+    flex: 1;
     padding: 0px 0px 10px 65px;
     min-height: 6%;
 }
@@ -26,7 +26,7 @@
     background-color: var(--color-darkblue);
     color: var(--color-white);
 }
-
+}
 .savecancelbutton .delete {
     background-color: rgb(167, 2, 2);
     color: var(--color-white);

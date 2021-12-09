@@ -3,9 +3,10 @@ import "../../styles/modalbase.css";
 
 const ModalBase = ({ title, children, footer, onClickVoidDismiss }) => {
     return (
-        <div className="modalbase"
+        <div
+            className="modalbase"
             onClick={() => {
-                onClickVoidDismiss();
+                if (onClickVoidDismiss) onClickVoidDismiss();
             }}
         >
             <div className="modalbase-container">

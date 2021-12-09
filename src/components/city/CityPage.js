@@ -8,7 +8,9 @@ import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/cities/citySlice";
 import EditableTitle from "../base/EditableTitle";
 import { createCity, updateCity } from "../../store/cities/city";
-
+import LinkList from "../base/LinkList";
+import ModalBase from "../modal/ModalBase";
+import ModalLink from "../modal/ModalLink";
 
 const CityPage = () => {
     const { id } = useParams();
@@ -19,7 +21,9 @@ const CityPage = () => {
         return citypage._id === id;
     });
 
-    if(isNew){
+    const { worlds } = useSelector((state) => state.worlds);
+
+    if (isNew) {
         citypageDefault = {
             name: "",
             size: "",
@@ -35,6 +39,13 @@ const CityPage = () => {
         setCity({
             ...citypage,
             name,
+        });
+    };
+
+    const setLink = (link) => {
+        setCity({
+            ...citypage,
+            link,
         });
     };
 
@@ -60,7 +71,14 @@ const CityPage = () => {
 
     return (
         <div className="citypage">
-            <BaseMultipleContent title={<EditableTitle initialTitle = {citypage.name} setValue = {setName}/>}>
+            <BaseMultipleContent
+                title={
+                    <EditableTitle
+                        initialTitle={citypage.name}
+                        setValue={setName}
+                    />
+                }
+            >
                 <div className="citypage-content">
                     <FildWithTitle
                         title="Size"
@@ -75,26 +93,21 @@ const CityPage = () => {
                         name="government"
                         handleChange={handleChange}
                     ></FildWithTitle>
-
-                    <FildWithTitle
-                        title="Points of Interest"
-                        text={citypage.pointsOfInterest}
-                        name="pointsOfInterest"
-                        handleChange={handleChange}
-                    ></FildWithTitle>
-
-                    <FildWithTitle
-                        title="NPCs in this location"
-                        text={citypage.npcs}
-                        name="npcs"
-                        handleChange={handleChange}
-                    ></FildWithTitle>
                 </div>
             </BaseMultipleContent>
-            <SaveCancelButton
-                onClickSave={handleSave}
-                comparison={comparison}
-            />
+            <div className="content-footer">
+                <SaveCancelButton
+                    onClickSave={handleSave}
+                    comparison={comparison}
+                />
+                <ModalLink
+                    list={worlds.map((world) => {
+                        return { name: world.name, _id: world._id };
+                    })}
+                    setLink={setLink}
+                    linkedTo={citypage.link}
+                />
+            </div>
         </div>
     );
 };

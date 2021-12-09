@@ -7,10 +7,13 @@ import FildWithTitle from "../base/FildWithTitle";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { createLocation, updateLocation } from "../../store/location/location";
 import EditableTitle from "../base/EditableTitle";
+import ModalLink from "../modal/ModalLink";
 
 const Location = () => {
     const { id } = useParams();
     const isNew = id === "new";
+
+    const { cities } = useSelector((state) => state.cities);
 
     const dispatch = useDispatch();
 
@@ -38,6 +41,13 @@ const Location = () => {
         });
     };
 
+    const setLink = (link) => {
+        setLocation({
+            ...location,
+            link,
+        });
+    };
+
     const handleChange = (e) => {
         setLocation({
             ...location,
@@ -55,7 +65,14 @@ const Location = () => {
 
     return (
         <div className="location">
-            <BaseMultipleContent title={<EditableTitle initialTitle = {location.name} setValue = {setName}/>}>
+            <BaseMultipleContent
+                title={
+                    <EditableTitle
+                        initialTitle={location.name}
+                        setValue={setName}
+                    />
+                }
+            >
                 <div className="location-content">
                     <FildWithTitle
                         title="Surrounding Area"
@@ -71,10 +88,19 @@ const Location = () => {
                     />
                 </div>
             </BaseMultipleContent>
-            <SaveCancelButton
-                onClickSave={handleSave}
-                comparison={{ old: locationDefault, new: location }}
-            />
+            <div className="content-footer">
+                <SaveCancelButton
+                    onClickSave={handleSave}
+                    comparison={{ old: locationDefault, new: location }}
+                />
+                <ModalLink
+                    list={cities.map((city) => {
+                        return { name: city.name, _id: city._id };
+                    })}
+                    setLink={setLink}
+                    linkedTo={location.link}
+                />
+            </div>
         </div>
     );
 };

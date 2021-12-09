@@ -94,10 +94,12 @@ const World = () => {
                     />
                 </div>
             </BaseMultipleContent>
-            <SaveCancelButton
-                onClickSave={handleSave}
-                comparison={comparison}
-            />
+            <div className="content-footer">
+                <SaveCancelButton
+                    onClickSave={handleSave}
+                    comparison={comparison}
+                />
+            </div>
         </div>
     );
 };

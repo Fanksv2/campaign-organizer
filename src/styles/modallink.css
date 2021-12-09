@@ -1,0 +1,39 @@
+.disabled {
+    display: none;
+}
+
+.modallink-footer {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.modallink-content .modallink-ok-button {
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    right: auto;
+
+    background: var(--color-light-grey);
+    cursor: pointer;
+}
+
+.modallink-content .modallink-ok-button:hover {
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    right: auto;
+
+    background: var(--color-red);
+    color: white;
+    cursor: pointer;
+}
+
+.modallink-content .modalbase-container {
+    height: 60% !important;
+    width: 50%;
+}

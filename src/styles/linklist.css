@@ -1,0 +1,62 @@
+.linklist {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.linklist-content {
+    display: flex;
+    flex: 1;
+    width: 90%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.linklist-content .baselistlarge {
+    background: var(--color-darkblue);
+    width: 100%;
+    height: 100%;
+}
+
+.linklist-content .baselistlarge .largebutton {
+    background: var(--color-lightblue);
+}
+
+.modallink-content {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.modallink-content > button {
+    width: 10%;
+    border-radius: 3px;
+    margin-right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    height: 90%;
+
+    margin-right: 30px;
+
+    background: var(--color-red);
+    color: white;
+}
+
+.modallink-content > button:hover {
+    background: #8c281fad;
+    color: var(--color-black);
+}
+
+.disabled {
+    display: none;
+}
+
+.choosedElement {
+    color: white;
+}
