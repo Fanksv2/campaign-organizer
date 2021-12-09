@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
 import "../../styles/savecancelbutton.css";
+import ModalSaved from "../modal/ModalSaved";
 import ModalUnsavedChanges from "../modal/ModalUnsavedChanges";
+
 
 const SaveCancelButton = (props) => {
     const { onClickCancel, onClickSave, comparison } = props;
     const [modalActive, setModalActive] = useState(false);
-    const [salvar, setSalvar] = useState(false);
+    const [modalSavedActive, setModalSavedActive] = useState(false);
 
     const handleCancel = (e) => {
         console.log(comparison);
@@ -15,10 +17,6 @@ const SaveCancelButton = (props) => {
         } else {
             props.history.goBack();
         }
-    };
-
-    const handleSave = (e) => {
-        setSalvar(true);
     };
 
     return (
@@ -34,6 +32,7 @@ const SaveCancelButton = (props) => {
             <button
                 className={"save"}
                 onClick={(e) => {
+                    setModalSavedActive(true);
                     return onClickSave ? onClickSave() : null; //Display mensagem
                 }}
             >
@@ -43,11 +42,18 @@ const SaveCancelButton = (props) => {
                 disabled={modalActive}
                 onClickSave={() => {
                     setModalActive(false);
+                    setModalSavedActive(true);
                     return onClickSave ? onClickSave() : null;
                 }}
                 onClickCancel={() => {
                     props.history.goBack();
                     setModalActive(false);
+                }}
+            />
+            <ModalSaved 
+                disabled={modalSavedActive}
+                onClickDismiss={() => {
+                    setModalSavedActive(false);
                 }}
             />
         </div>

@@ -48,6 +48,9 @@ export const worldSlice = createSlice({
         setWorlds: (state, action) => {
             state.worlds = action.payload;
         },
+        delete: (state, action) => {
+            //Add codigo
+        }
     },
 });
 
