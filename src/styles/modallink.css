@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 
-.modalbase-container {
+.modallink-content .modalbase-container {
     height: 60% !important;
     width: 50%;
 }

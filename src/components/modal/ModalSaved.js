@@ -1,16 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "../../styles/savesuccess.css";
 import ModalBase from "./ModalBase";
 
 const ModalSaved = ({ disabled, onClickDismiss, footer }) => {
+    const history = useHistory();
 
     return (
-        <div className = {"modalsave " + (disabled ? "" : "disabled")}>
+        <div className={"modalsave " + (disabled ? "" : "disabled")}>
             <ModalBase
-                title = "Save Success"
-                footer = {
+                title="Save Success"
+                footer={
                     <div className="modalsave-footer">
-                        <button className = "okbtn"
+                        <button
+                            className="okbtn"
                             onClick={() => {
                                 onClickDismiss();
                             }}
@@ -19,12 +22,12 @@ const ModalSaved = ({ disabled, onClickDismiss, footer }) => {
                         </button>
                     </div>
                 }
-                onClickVoidDismiss = {() => {
+                onClickVoidDismiss={() => {
                     onClickDismiss();
+                    history.goBack();
                 }}
             >
                 <p>Your changes have been saved!</p>
-                
             </ModalBase>
         </div>
 
