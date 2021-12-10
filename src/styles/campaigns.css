@@ -16,3 +16,27 @@
 .newbutton:hover {
     background-color: seagreen !important;
 }
+
+.campaigns .editabletitle{
+    color: rgb(160, 160, 160);
+}
+
+.campaigns .editabletitle input{
+    width: 100%;
+    text-align: center;
+    /*border: 1px solid black;*/
+    border-radius: 5px;
+    background-color: rgba(33, 102, 63, 0.377);
+}
+
+.campaigns .editabletitle ::placeholder{
+    color: rgb(240, 240, 240);
+    background-color: rgba(33, 102, 63, 0.377); /*#f2a97ea4*/
+}
+
+.campaigns .editabletitle input:-webkit-autofill,
+.campaigns .editabletitle input:-webkit-autofill:hover, 
+.campaigns .editabletitle input:-webkit-autofill:focus, 
+.campaigns .editabletitle input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(rgba(33, 102, 63, 0.377)) inset !important;
+}

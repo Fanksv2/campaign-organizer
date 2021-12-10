@@ -13,8 +13,11 @@ export const campaignSlice = createSlice({
         setCampaignChoosed: (state, action) => {
             state.campaignChoosed = action.payload;
         },
+        create: (state, action) => {
+            state.campaigns = [...state.campaigns, action.payload];
+        },
     },
 });
 
-export const { setCampaigns, setCampaignChoosed } = campaignSlice.actions;
+export const { setCampaigns, setCampaignChoosed, create } = campaignSlice.actions;
 export default campaignSlice.reducer;

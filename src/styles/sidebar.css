@@ -29,4 +29,5 @@
 
 .sidebar .active path {
     fill: var(--color-darkblue);
+    /* filter: drop-shadow(-1px 1px 0px rgb(255 255 255)); */
 }
