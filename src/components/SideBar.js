@@ -70,7 +70,7 @@ const SideBar = (props) => {
                     className={`${currentPage === "npcs" ? active : ""}`}
                 />
             </Link>
-            <Link
+            {/* <Link
                 to="/dashboard"
                 id="dashboard"
                 onClick={(e) => handleClick(e)}
@@ -78,7 +78,7 @@ const SideBar = (props) => {
                 <D20Icon
                     className={`${currentPage === "dashboard" ? active : ""}`}
                 />
-            </Link>
+            </Link> */}
         </div>
     );
 };

@@ -4,6 +4,8 @@ export const locationSlice = createSlice({
     name: "locations",
     initialState: {
         locations: [],
+        locationChoosed: "",
+        locationsLinked: [],
     },
     reducers: {
         create: (state, action) => {
@@ -24,12 +26,27 @@ export const locationSlice = createSlice({
         setLocations: (state, action) => {
             state.locations = action.payload;
         },
-        
+
         destroy: (state, action) => {
-            state.locations = state.locations.filter((item) => item._id !== action.payload._id);
+            state.locations = state.locations.filter(
+                (item) => item._id !== action.payload._id
+            );
+        },
+        setLocationChoosed: (state, action) => {
+            state.locationChoosed = action.payload;
+        },
+        setLocationsLinked: (state, action) => {
+            state.locationsLinked = action.payload;
         },
     },
 });
 
-export const { create, update, setLocations, destroy } = locationSlice.actions;
+export const {
+    create,
+    update,
+    setLocations,
+    destroy,
+    setLocationChoosed,
+    setLocationsLinked,
+} = locationSlice.actions;
 export default locationSlice.reducer;

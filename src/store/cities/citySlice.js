@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const citySlice = createSlice({
     name: "cities",
-    
+
     initialState: {
         cities: [
             // {
@@ -23,13 +23,15 @@ export const citySlice = createSlice({
             // },
             // {
             //     id: 2,
-                // name: "Pindamonhangaba",
-                // size: "15000 people",
-                // government: "Democracy: Ruled by Leopoldo Ferreira",
-                // pointsOfInterest: "TEMPORARY, NOT SUPPOSED TO BE LIKE THIS",
-                // npcs: "TEMPORARY, NOT SUPPOSED TO BE LIKE THIS",
+            // name: "Pindamonhangaba",
+            // size: "15000 people",
+            // government: "Democracy: Ruled by Leopoldo Ferreira",
+            // pointsOfInterest: "TEMPORARY, NOT SUPPOSED TO BE LIKE THIS",
+            // npcs: "TEMPORARY, NOT SUPPOSED TO BE LIKE THIS",
             // },
         ],
+        cityChoosed: "",
+        citiesLinked: [],
     },
 
     reducers: {
@@ -39,7 +41,7 @@ export const citySlice = createSlice({
 
         update: (state, action) => {
             const citypage = action.payload;
-            const {_id} = citypage;
+            const { _id } = citypage;
             console.log(citypage);
 
             for (var i in state.cities) {
@@ -54,11 +56,25 @@ export const citySlice = createSlice({
         },
 
         destroy: (state, action) => {
-            state.cities = state.cities.filter((item) => item._id !== action.payload._id);
+            state.cities = state.cities.filter(
+                (item) => item._id !== action.payload._id
+            );
         },
-    }
+        setCityChoosed: (state, action) => {
+            state.cityChoosed = action.payload;
+        },
+        setCitiesLinked: (state, action) => {
+            state.citiesLinked = action.payload;
+        },
+    },
+});
 
-})
-
-export const { create, update, setCities, destroy } = citySlice.actions;
+export const {
+    create,
+    update,
+    setCities,
+    destroy,
+    setCityChoosed,
+    setCitiesLinked,
+} = citySlice.actions;
 export default citySlice.reducer;

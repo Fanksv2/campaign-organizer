@@ -35,6 +35,7 @@ function App() {
             //Used for keep the choosed campaign after refresh page
             const campaignId = localStorage.getItem("@thelorekeeper-campaign");
             if (campaignId) {
+                dispatch(setCampaignChoosed(true));
                 const campaigns = await getCampaigns(dispatch);
                 if (!campaigns) {
                     return;

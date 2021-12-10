@@ -5,4 +5,40 @@
 
 .dashboard-content {
     flex: 1;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 200px 200px 200px;
+    column-gap: 20px;
+}
+
+.dashboard-content .dashboard-worlds {
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.dashboard-content .dashboard-cities {
+    grid-column-start: 1;
+    grid-column-end: 1;
+
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.dashboard-content .dashboard-locations {
+    grid-column-start: 2;
+    grid-column-end: 2;
+
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.dashboard-content .dashboard-npcs {
+    grid-column-start: 3;
+    grid-column-end: 3;
+
+    grid-row-start: 2;
+    grid-row-end: 4;
 }

@@ -4,6 +4,7 @@ export const worldSlice = createSlice({
     name: "worlds",
     initialState: {
         worlds: [],
+        worldChoosed: "",
         // {
         //     id: 0,
         //     name: "Forgotten Realms",
@@ -49,10 +50,16 @@ export const worldSlice = createSlice({
             state.worlds = action.payload;
         },
         destroy: (state, action) => {
-            state.worlds = state.worlds.filter((item) => item._id !== action.payload._id);
+            state.worlds = state.worlds.filter(
+                (item) => item._id !== action.payload._id
+            );
+        },
+        setWorldChoosed: (state, action) => {
+            state.worldChoosed = action.payload;
         },
     },
 });
 
-export const { create, update, setWorlds, destroy } = worldSlice.actions;
+export const { create, update, setWorlds, destroy, setWorldChoosed } =
+    worldSlice.actions;
 export default worldSlice.reducer;

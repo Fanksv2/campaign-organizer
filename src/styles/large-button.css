@@ -43,6 +43,11 @@ a {
     color: var(--color-white);
 }
 
+.choosed .largebutton {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
 .largebutton svg {
     height: 40px;
     padding-top: 3px;

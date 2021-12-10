@@ -31,6 +31,7 @@ export const npcSlice = createSlice({
             //         "Stubborn, won't take no guff from anyone, but is kind to those who have earned it",
             // },
         ],
+        npcsLinked: [],
     },
 
     reducers: {
@@ -59,10 +60,16 @@ export const npcSlice = createSlice({
 
         destroy: (state, action) => {
             console.log(state.npcs);
-            state.npcs = state.npcs.filter((item) => item._id !== action.payload._id);
+            state.npcs = state.npcs.filter(
+                (item) => item._id !== action.payload._id
+            );
+        },
+        setNpcsLinked: (state, action) => {
+            state.npcsLinked = action.payload;
         },
     },
 });
 
-export const { create, update, setNpcs, destroy } = npcSlice.actions;
+export const { create, update, setNpcs, destroy, setNpcsLinked } =
+    npcSlice.actions;
 export default npcSlice.reducer;
