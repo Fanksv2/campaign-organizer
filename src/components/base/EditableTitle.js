@@ -3,9 +3,7 @@ import "../../styles/editabletitle.css";
 
 const EditableTitle = (props) => {
 
-    const {initialTitle, setValue} = props;
-    
-    // console.log(initialTitle);
+    const {initialTitle, setValue, onEnterPress} = props;
 
     const [title, setTitle] = useState(initialTitle);
 
@@ -15,11 +13,15 @@ const EditableTitle = (props) => {
     }
 
     return (
-        <div >
-            {/* TODO: receber um input, handleChange e um state 
-            fanks: de onde estamos puxando os titulos? Onde vamos salvar essas informações?*/}
-            <input id = "titleInput" placeholder = "EDIT TITLE HERE" onChange = {(e) => handleChange(e)} value = {title}>
-                
+        <div className = "editabletitle">
+            <input id = "titleInput" placeholder = "Edit Title Here..." autocomplete="off" onChange = {(e) => handleChange(e)} value = {title} onKeyUp = {(e) => {
+                if(e.key === "Enter"){
+                    if(onEnterPress){
+                        onEnterPress();
+                    }
+                }
+            }}
+            >
             </input>
         </div>
     )
