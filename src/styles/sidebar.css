@@ -31,3 +31,8 @@
     fill: var(--color-darkblue);
     /* filter: drop-shadow(-1px 1px 0px rgb(255 255 255)); */
 }
+
+.sidebar-line {
+    width: 100%;
+    border-bottom: 1px solid black;
+}

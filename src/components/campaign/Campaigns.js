@@ -9,8 +9,9 @@ import { createCampaign, getCampaigns } from "../../store/campaign/campaign";
 import { setCampaignChoosed } from "../../store/campaign/campaignSlice";
 import EditableTitle from "../base/EditableTitle";
 import { useHistory } from "react-router";
+import api from "../../api/api";
 
-const Campaigns = () => {
+const Campaigns = ({ refreshCampaign }) => {
     const { campaigns, campaignChoosed } = useSelector(
         (state) => state.campaigns
     );
@@ -28,22 +29,22 @@ const Campaigns = () => {
 
     const handleClick = (id) => {
         localStorage.setItem("@thelorekeeper-campaign", id);
-        dispatch(setCampaignChoosed(true));
-        console.log(campaignChoosed);
+        api.defaults.headers.common["Campaign"] = id;
+        console.log(api.defaults.headers);
+        refreshCampaign(id);
         history.go(0);
-        // history.push("/dashboard");
     };
 
     const handleNew = () => {
         setEditCampaignName(true);
         console.log(campaigns);
-    }
+    };
 
     const onEnterPress = () => {
         createCampaign(dispatch, name);
         setEditCampaignName(false);
         setName("");
-    }
+    };
 
     return (
         <div className="campaigns">
@@ -60,12 +61,20 @@ const Campaigns = () => {
                                 </LargeButton>
                             );
                         })}
-                        {!editCampaignName ? <LargeButton 
-                            className="newbutton"
-                            onClick={() => handleNew()}
-                        >
-                            NEW <PlusIcon />
-                        </LargeButton> : <EditableTitle initialTitle={""} setValue={setName} onEnterPress={onEnterPress}/>}
+                        {!editCampaignName ? (
+                            <LargeButton
+                                className="newbutton"
+                                onClick={() => handleNew()}
+                            >
+                                NEW <PlusIcon />
+                            </LargeButton>
+                        ) : (
+                            <EditableTitle
+                                initialTitle={""}
+                                setValue={setName}
+                                onEnterPress={onEnterPress}
+                            />
+                        )}
                     </BaseListLarge>
                 </div>
             </BaseMultipleContent>

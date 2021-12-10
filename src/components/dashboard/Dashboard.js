@@ -83,6 +83,7 @@ const Dashboard = (props) => {
                         vertical={false}
                         className="dashboard-worlds"
                     >
+                        <p>Worlds</p>
                         {worlds.map((world) => {
                             return (
                                 <DashboardElement
@@ -105,6 +106,7 @@ const Dashboard = (props) => {
                         })}
                     </BaseListSmall>
                     <BaseListSmall vertical={true} className="dashboard-cities">
+                        <p>Cities</p>
                         {citiesLinked.map((city) => {
                             return (
                                 <DashboardElement
@@ -128,6 +130,7 @@ const Dashboard = (props) => {
                         vertical={true}
                         className="dashboard-locations"
                     >
+                        <p>Locations</p>
                         {locationsLinked.map((location) => {
                             return (
                                 <DashboardElement
@@ -152,6 +155,7 @@ const Dashboard = (props) => {
                         })}
                     </BaseListSmall>
                     <BaseListSmall vertical={true} className="dashboard-npcs">
+                        <p>Npcs</p>
                         {npcsLinked.map((npc) => {
                             return (
                                 <DashboardElement

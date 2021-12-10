@@ -15,10 +15,6 @@ const Locations = () => {
     const { locations } = useSelector((state) => state.locations);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        getLocations(dispatch);
-    }, []);
-
     return (
         <div className="locations">
             <BaseMultipleContent title="Locations">

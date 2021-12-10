@@ -30,30 +30,39 @@ function App() {
     const { campaignChoosed } = useSelector((state) => state.campaigns);
     const dispatch = useDispatch();
 
-    useLayoutEffect(() => {
-        async function refreshCampaign() {
-            //Used for keep the choosed campaign after refresh page
-            const campaignId = localStorage.getItem("@thelorekeeper-campaign");
-            if (campaignId) {
+    async function refreshCampaign(id) {
+        console.log("REFRESHED");
+        //Used for keep the choosed campaign after refresh page
+        const campaignId = id
+            ? id
+            : localStorage.getItem("@thelorekeeper-campaign");
+
+        if (campaignId) {
+            const campaigns = await getCampaigns(dispatch);
+            if (!campaigns) {
+                return;
+            }
+            const campaign = campaigns.find(
+                (campaign) => campaignId === campaign._id
+            );
+            if (campaign) {
+                console.log(campaign);
                 dispatch(setCampaignChoosed(true));
-                const campaigns = await getCampaigns(dispatch);
-                if (!campaigns) {
-                    return;
-                }
-                const campaign = campaigns.find(
-                    (campaign) => campaignId === campaign._id
-                );
-                if (campaign) {
-                    console.log(campaign);
-                    dispatch(setCampaignChoosed(true));
-                    dispatch(setLocations(campaign.content.locations));
-                    dispatch(setWorlds(campaign.content.worlds));
-                    dispatch(setNpcs(campaign.content.npcs));
-                    dispatch(setCities(campaign.content.cities));
-                }
+
+                dispatch(setLocations([]));
+                dispatch(setWorlds([]));
+                dispatch(setNpcs([]));
+                dispatch(setCities([]));
+
+                dispatch(setLocations(campaign.content.locations));
+                dispatch(setWorlds(campaign.content.worlds));
+                dispatch(setNpcs(campaign.content.npcs));
+                dispatch(setCities(campaign.content.cities));
             }
         }
+    }
 
+    useLayoutEffect(() => {
         refreshCampaign();
     }, []);
 
@@ -79,7 +88,13 @@ function App() {
                                 <div className="app-content">
                                     <Switch>
                                         <Route
-                                            component={Campaigns}
+                                            render={(props) => (
+                                                <Campaigns
+                                                    refreshCampaign={
+                                                        refreshCampaign
+                                                    }
+                                                />
+                                            )}
                                             exact
                                             path="/campaigns"
                                         />

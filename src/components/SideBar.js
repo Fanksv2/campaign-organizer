@@ -36,6 +36,7 @@ const SideBar = (props) => {
                     className={`${currentPage === "campaigns" ? active : ""}`}
                 />
             </Link>
+
             <Link
                 to="/dashboard"
                 id="dashboard"
@@ -45,6 +46,8 @@ const SideBar = (props) => {
                     className={`${currentPage === "dashboard" ? active : ""} `}
                 />
             </Link>
+
+            <div className="sidebar-line"></div>
 
             <Link to="/worlds" id="worlds" onClick={(e) => handleClick(e)}>
                 <WorldIcon

@@ -12,11 +12,20 @@
 }
 
 .dashboard-content .dashboard-worlds {
+    position: relative;
     grid-column-start: 1;
     grid-column-end: 4;
 
     grid-row-start: 1;
     grid-row-end: 1;
+}
+
+.dashboard-content .dashboard-worlds p {
+    position: absolute;
+    z-index: 6;
+    font-size: 20px;
+    top: 0px;
+    left: 30px;
 }
 
 .dashboard-content .dashboard-cities {
@@ -27,6 +36,10 @@
     grid-row-end: 4;
 }
 
+.dashboard-content .dashboard-cities p {
+    font-size: 20px;
+}
+
 .dashboard-content .dashboard-locations {
     grid-column-start: 2;
     grid-column-end: 2;
@@ -35,10 +48,18 @@
     grid-row-end: 4;
 }
 
+.dashboard-content .dashboard-locations p {
+    font-size: 20px;
+}
+
 .dashboard-content .dashboard-npcs {
     grid-column-start: 3;
     grid-column-end: 3;
 
     grid-row-start: 2;
     grid-row-end: 4;
+}
+
+.dashboard-content .dashboard-npcs p {
+    font-size: 20px;
 }

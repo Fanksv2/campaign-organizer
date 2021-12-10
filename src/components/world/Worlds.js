@@ -12,10 +12,6 @@ const Worlds = () => {
     const { worlds } = useSelector((state) => state.worlds);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        getWorlds(dispatch);
-    }, []);
-
     return (
         <div className="worlds">
             <BaseMultipleContent title="Worlds">
