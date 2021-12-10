@@ -1,5 +1,5 @@
 import api from "../../api/api";
-import { create, setWorlds, update } from "./worldSlice";
+import { create, setWorlds, update, destroy } from "./worldSlice";
 
 export const getWorlds = async (dispatch) => {
     return await api
@@ -39,10 +39,9 @@ export const updateWorld = async (dispatch, world) => {
 
 export const deleteWorld = async (dispatch, world) => {
     return await api
-        .delete("/world", { world })
+        .delete("/world", { data: {world} })
         .then((res) => {
-            //adicionar o que vai acontecer
-            dispatch(delete(res.data.world));
+            dispatch(destroy(res.data.world));
         })
         .catch((err) => {
             console.log(err);

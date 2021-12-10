@@ -1,6 +1,5 @@
 import api from "../../api/api";
-import { setLocations, update } from "../location/locationSlice";
-import { create } from "./locationSlice";
+import { create, setLocations, update, destroy } from "../location/locationSlice";
 
 export const getLocations = async (dispatch) => {
     return await api
@@ -37,3 +36,15 @@ export const updateLocation = async (dispatch, location) => {
             console.log(err);
         });
 };
+
+export const deleteLocation = async (dispatch, location) => {
+    return await api
+        .delete("/location", { data: {location} })
+        .then((res) => {
+            dispatch(destroy(res.data.location));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+

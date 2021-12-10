@@ -52,9 +52,13 @@ export const citySlice = createSlice({
         setCities: (state, action) => {
             state.cities = action.payload;
         },
+
+        destroy: (state, action) => {
+            state.cities = state.cities.filter((item) => item._id !== action.payload._id);
+        },
     }
 
 })
 
-export const { create, update, setCities } = citySlice.actions;
+export const { create, update, setCities, destroy } = citySlice.actions;
 export default citySlice.reducer;

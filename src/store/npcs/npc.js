@@ -1,5 +1,5 @@
 import api from "../../api/api";
-import { setNpcs, update, create } from "./npcSlice";
+import { setNpcs, update, create, destroy } from "./npcSlice";
 
 export const getNpcs = async (dispatch) => {
     return await api
@@ -37,3 +37,16 @@ export const updateNpc = async (dispatch, npc) => {
             console.log(err);
         });
 };
+
+export const deleteNpc = async (dispatch, npc) => {
+    return await api
+        .delete("/npc", { data: {npc} })
+        .then((res) => {
+            console.log(res.data.npc);
+            dispatch(destroy(res.data.npc));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+

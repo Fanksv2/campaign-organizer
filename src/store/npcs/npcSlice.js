@@ -51,12 +51,18 @@ export const npcSlice = createSlice({
                 }
             }
         },
+
         setNpcs: (state, action) => {
             state.npcs = action.payload;
             console.log(state.npcs);
         },
+
+        destroy: (state, action) => {
+            console.log(state.npcs);
+            state.npcs = state.npcs.filter((item) => item._id !== action.payload._id);
+        },
     },
 });
 
-export const { create, update, setNpcs } = npcSlice.actions;
+export const { create, update, setNpcs, destroy } = npcSlice.actions;
 export default npcSlice.reducer;

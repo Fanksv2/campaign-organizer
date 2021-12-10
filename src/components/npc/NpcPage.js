@@ -5,7 +5,7 @@ import FildWithTitle from "../base/FildWithTitle";
 import "../../styles/npcpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
-import { createNpc, updateNpc } from "../../store/npcs/npc";
+import { createNpc, deleteNpc, updateNpc } from "../../store/npcs/npc";
 import EditableTitle from "../base/EditableTitle";
 import ModalLink from "../modal/ModalLink";
 import { setLocations } from "../../store/location/locationSlice";
@@ -65,6 +65,10 @@ const NpcPage = () => {
         });
     };
 
+    const handleDelete = () => {
+        deleteNpc(dispatch, npcpage);
+    };
+
     const comparison = {
         old: npcpageDefault,
         new: npcpage,
@@ -106,6 +110,7 @@ const NpcPage = () => {
             <div className="content-footer">
                 <SaveCancelButton
                     onClickSave={handleSave}
+                    onClickDelete={handleDelete}
                     comparison={comparison}
                 />
                 <ModalLink

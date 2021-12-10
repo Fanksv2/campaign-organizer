@@ -48,11 +48,11 @@ export const worldSlice = createSlice({
         setWorlds: (state, action) => {
             state.worlds = action.payload;
         },
-        delete: (state, action) => {
-            //Add codigo
-        }
+        destroy: (state, action) => {
+            state.worlds = state.worlds.filter((item) => item._id !== action.payload._id);
+        },
     },
 });
 
-export const { create, update, setWorlds } = worldSlice.actions;
+export const { create, update, setWorlds, destroy } = worldSlice.actions;
 export default worldSlice.reducer;

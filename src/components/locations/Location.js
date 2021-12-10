@@ -5,7 +5,7 @@ import BaseMultipleContent from "../base/BaseMultipleContent";
 import "../../styles/location.css";
 import FildWithTitle from "../base/FildWithTitle";
 import SaveCancelButton from "../base/SaveCancelButton";
-import { createLocation, updateLocation } from "../../store/location/location";
+import { createLocation, deleteLocation, updateLocation } from "../../store/location/location";
 import EditableTitle from "../base/EditableTitle";
 import ModalLink from "../modal/ModalLink";
 
@@ -26,7 +26,7 @@ const Location = () => {
 
     if (isNew) {
         locationDefault = {
-            name: "NEW",
+            name: "",
             surroundingArea: "",
             description: "",
         };
@@ -63,6 +63,10 @@ const Location = () => {
         }
     };
 
+    const handleDelete = () => {
+        deleteLocation(dispatch, location);
+    };
+
     return (
         <div className="location">
             <BaseMultipleContent
@@ -91,6 +95,7 @@ const Location = () => {
             <div className="content-footer">
                 <SaveCancelButton
                     onClickSave={handleSave}
+                    onClickDelete={handleDelete}
                     comparison={{ old: locationDefault, new: location }}
                 />
                 <ModalLink

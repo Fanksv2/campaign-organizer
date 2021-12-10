@@ -35,7 +35,7 @@ const SaveCancelButton = (props) => {
                 className={"save"}
                 onClick={(e) => {
                     setModalSavedActive(true);
-                    return onClickSave ? onClickSave() : null; //Display mensagem
+                    return onClickSave ? onClickSave() : null;
                 }}
             >
                 Save
@@ -70,6 +70,10 @@ const SaveCancelButton = (props) => {
             />
             <ModalDelete
                 disabled={modalDeleteActive}
+                onClickDelete={() => {
+                    setModalDeleteActive(false);
+                    return onClickDelete ? onClickDelete() : null;
+                }}
                 onClickDismiss={() => {
                     setModalDeleteActive(false);
                 }}

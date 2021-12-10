@@ -6,7 +6,7 @@ import "../../styles/world.css";
 import { useDispatch, useSelector } from "react-redux";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/world/worldSlice";
-import { createWorld, updateWorld } from "../../store/world/world";
+import { createWorld, updateWorld, deleteWorld } from "../../store/world/world";
 import EditableTitle from "../base/EditableTitle";
 
 const World = () => {
@@ -57,6 +57,10 @@ const World = () => {
         }
     };
 
+    const handleDelete = () => {
+        deleteWorld(dispatch, world);
+    };
+
     return (
         <div className="world">
             <BaseMultipleContent
@@ -97,6 +101,7 @@ const World = () => {
             <div className="content-footer">
                 <SaveCancelButton
                     onClickSave={handleSave}
+                    onClickDelete={handleDelete}
                     comparison={comparison}
                 />
             </div>

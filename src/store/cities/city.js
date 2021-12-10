@@ -1,5 +1,5 @@
 import api from "../../api/api";
-import { create, setCities, update } from "./citySlice";
+import { create, setCities, update, destroy } from "./citySlice";
 
 export const getCities = async (dispatch) => {
     return await api
@@ -35,4 +35,15 @@ export const updateCity = async (dispatch, city) => {
         .catch((err) => {
             console.log(err);
         });
+};
+
+export const deleteCity = async (dispatch, city) => {
+    return await api
+        .delete("/city", { data: {city} })
+        .then((res) => {
+            dispatch(destroy(res.data.city));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 };

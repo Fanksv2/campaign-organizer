@@ -7,7 +7,7 @@ import "../../styles/citypage.css";
 import SaveCancelButton from "../base/SaveCancelButton";
 import { update } from "../../store/cities/citySlice";
 import EditableTitle from "../base/EditableTitle";
-import { createCity, updateCity } from "../../store/cities/city";
+import { createCity, deleteCity, updateCity } from "../../store/cities/city";
 import LinkList from "../base/LinkList";
 import ModalBase from "../modal/ModalBase";
 import ModalLink from "../modal/ModalLink";
@@ -64,6 +64,10 @@ const CityPage = () => {
         });
     };
 
+    const handleDelete = () => {
+        deleteCity(dispatch, citypage);
+    };
+
     const comparison = {
         old: citypageDefault,
         new: citypage,
@@ -98,6 +102,7 @@ const CityPage = () => {
             <div className="content-footer">
                 <SaveCancelButton
                     onClickSave={handleSave}
+                    onClickDelete={handleDelete}
                     comparison={comparison}
                 />
                 <ModalLink
