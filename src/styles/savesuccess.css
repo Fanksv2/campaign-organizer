@@ -15,7 +15,7 @@
 }
 
 .modalsave-footer {
-    background-color: var(--color-white);
+    background-color: none;
     padding: 10px;
     display: flex;
     flex-grow: 1;
