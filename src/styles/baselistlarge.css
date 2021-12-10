@@ -1,5 +1,6 @@
 .baselistlarge {
-    background-color: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(https://cdn.discordapp.com/attachments/899708135571345438/918867918383616000/marjan-blan-marjanblan-_kUxT8WkoeY-unsplash_1.jpg);
+    background-size: cover;
     width: 50%;
     height: 70%;
     border-radius: 5px;

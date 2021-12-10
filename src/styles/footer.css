@@ -1,4 +1,5 @@
 .footer {
-    background-color: var(--color-red);
+    background:linear-gradient(0deg, rgb(140, 40, 31, 0.8), rgb(140, 40, 31, 0.8)), url(https://cdn.discordapp.com/attachments/899708135571345438/918870944766918656/abff7e9d05fb82b40d3fb8b8d56d690f.jpg);
+    background-repeat: repeat;
     padding: 10px 10px 10px 10px;
 }

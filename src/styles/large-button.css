@@ -23,7 +23,8 @@ a {
     font-size: 40px;
     text-shadow: 2px 2px 2px var(--color-shadow-black);
     margin-bottom: 10px;
-    background-color: rgba(107, 36, 36, 0.658);
+    background: linear-gradient(0deg, rgba(107, 36, 36, 0.65), rgba(107, 36, 36, 0.65)), url(https://cdn.discordapp.com/attachments/899708135571345438/918870944766918656/abff7e9d05fb82b40d3fb8b8d56d690f.jpg);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +33,7 @@ a {
     cursor: pointer;
 
     -webkit-box-shadow: 6px 6px 13px -7px var(--color-shadow-black);
-    box-shadow: 6px 6px 7px -7px var(--color-shadow-black);
+    box-shadow: 5px 5px 5px var(--color-shadow-black);
 
     /* animation: 0.7s cubic-bezier(0.25, -0.25, 0.1, 1.75) 0s 1 slideInFromLeft; */
 }
