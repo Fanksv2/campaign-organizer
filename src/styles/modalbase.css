@@ -31,7 +31,9 @@
 .modalbase-header * {
     display: flex;
     flex-grow: 1;
-    background-color: var(--color-red);
+    /* background-color: var(--color-red); */
+    background: linear-gradient(0deg, rgba(107, 36, 36, 0.65), rgba(107, 36, 36, 0.65)), url(https://cdn.discordapp.com/attachments/899708135571345438/918870944766918656/abff7e9d05fb82b40d3fb8b8d56d690f.jpg);
+    background-size: cover;
     padding: 10px 0px 10px 0px;
 
     border-top-left-radius: 5px;
@@ -46,7 +48,9 @@
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
-    background-color: var(--color-white);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(https://cdn.discordapp.com/attachments/899708135571345438/918867918383616000/marjan-blan-marjanblan-_kUxT8WkoeY-unsplash_1.jpg);
+    background-size: cover;
+    /* background-color: var(--color-white); */
     padding: 20px 10px 15px 30px;
 
     word-wrap: break-word;
@@ -54,7 +58,9 @@
 }
 
 .modalbase-footer {
-    background-color: var(--color-white);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(https://cdn.discordapp.com/attachments/899708135571345438/918867918383616000/marjan-blan-marjanblan-_kUxT8WkoeY-unsplash_1.jpg);
+    background-size: cover;
+    /* background-color: var(--color-white); */
     padding: 10px;
     display: flex;
     flex-grow: 1;
