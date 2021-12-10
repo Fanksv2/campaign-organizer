@@ -21,9 +21,14 @@ a {
     width: 100%;
     border-radius: 5px;
     font-size: 40px;
-    text-shadow: 1px 1px 2px var(--color-white);
+    text-shadow: 1px 1px 5px var(--color-white);
     margin-bottom: 10px;
-    background: linear-gradient(0deg, rgb(40, 70, 89, 0.75), rgb(40, 70, 89, 0.75)), url(https://cdn.discordapp.com/attachments/899708135571345438/918870944766918656/abff7e9d05fb82b40d3fb8b8d56d690f.jpg);
+    background: linear-gradient(
+            0deg,
+            rgb(40, 70, 89, 0.75),
+            rgb(40, 70, 89, 0.75)
+        ),
+        url(https://cdn.discordapp.com/attachments/899708135571345438/918870944766918656/abff7e9d05fb82b40d3fb8b8d56d690f.jpg);
     background-size: cover;
     display: flex;
     justify-content: center;
